@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/habits/habit-form.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <h1>New Habit</h1>
+</section>
+
+<section class="form-container">
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn submit">Create Habit</button>
+  </form>
+</section>
+{% endblock %}

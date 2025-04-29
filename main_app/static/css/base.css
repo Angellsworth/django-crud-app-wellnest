@@ -1,0 +1,122 @@
+:root {
+    --color-brand-primary: #457D58;
+    /* WellNest Green */
+    --color-brand-secondary: #CCC9A1;
+    /* Soft Sage */
+    --color-text-primary: #434343;
+    /* Deep Gray */
+    --color-text-secondary: #8E8E8E;
+    /* Light Gray */
+    --color-background: #FFFFFF;
+    /* White Background */
+    --color-accent-optional: #754668;
+    /* Eggplant Accent */
+}
+
+/* Reset some default browser spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--color-brand-primary);
+    padding: 1rem;
+    text-align: center;
+}
+
+header nav a {
+    color: var(--color-background);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: 500;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+    color: var(--color-brand-secondary);
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1,
+h2 {
+    color: var(--color-brand-primary);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-top: 2rem;
+}
+
+p {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+footer {
+    background-color: var(--color-brand-primary);
+    color: var(--color-background);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Tagline style */
+.tagline {
+    font-style: italic;
+    color: var(--color-brand-secondary);
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+/* Button styling */
+.btn-start {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-brand-primary);
+    color: var(--color-background);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-start:hover {
+    background-color: var(--color-brand-secondary);
+    color: var(--color-text-primary);
+}
