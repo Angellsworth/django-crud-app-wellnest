@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ habit.title }}</h1>
+<p>{{ habit.description }}</p>
+<p><strong>Frequency:</strong> {{ habit.frequency }}</p>
+<p><strong>Created At:</strong> {{ habit.created_at }}</p>
+
+<a href="{% url 'habit-index' %}">← Back to All Habits</a>
+{% endblock %}

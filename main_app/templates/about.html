@@ -1,21 +1,99 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <section class="about-page">
-  <h1>About WellNest 🌿</h1>
-  <p class="tagline">Where wellness is woven daily. 🌱</p>
-  <hr />
+
+  <h1 class="about-title">About WellNest</h1>
+  <p class="tagline">Where your wellness journey becomes a living, breathing ritual.</p>
+  <hr class="about-divider" />
 
   <section class="about-section">
     <h2>What is WellNest?</h2>
     <p>
-      WellNest is your personal sanctuary for daily wellness — a place where reflection, mindful habits, and emotional growth come together, gently and intentionally.
+      WellNest is your personal sanctuary — a digital space where reflection, mindful habits, and emotional check-ins aren't an afterthought, but the heart of your every day.
     </p>
     <p>
-      In a world that moves too fast, WellNest invites you to slow down, to check in with yourself, and to nurture your journey, one small moment at a time. 🌱
+      We believe true wellness isn't just about grand gestures; it's woven into the tiny, sacred moments you choose yourself. 
+      WellNest gives you the tools to track, nurture, and celebrate your growth — gently, intentionally, and at your own pace.
     </p>
   </section>
 
-  <!-- rest of the sections stay the same -->
+  <section class="about-section">
+    <h2>Why We Built This</h2>
+    <p>
+      In a world that rewards hustle over healing, WellNest was created to be a counterweight — a place where slowing down is strength,
+      where your emotions, your routines, and your inner world matter deeply. 
+      It's a space to be seen, supported, and to witness your own evolution.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>Inside WellNest</h2>
+    <ul class="about-list">
+      <li><span class="leaf-icon">🍃</span> Build daily and weekly wellness habits that nurture, not exhaust, you.</li>
+      <li><span class="leaf-icon">🍃</span> Reflect through simple, guided emotional check-ins and journaling.</li>
+      <li><span class="leaf-icon">🍃</span> Visualize your moods and see your emotional seasons over time.</li>
+      <li><span class="leaf-icon">🍃</span> Customize your wellness path to match your season of life.</li>
+      <li><span class="leaf-icon">🍃</span> Future Feature: Connect with a gentle community to share wins, struggles, and encouragement.</li>
+      <li><span class="leaf-icon">🍃</span> Future Feature: Personalized reflection prompts and affirmations powered by AI wellness companions.</li>
+    </ul>
+  </section>
+
+  <section class="about-section">
+    <h2>Our Promise to You</h2>
+    <p>
+      WellNest will always center authenticity, gentleness, and empowerment. 
+      No toxic productivity. No comparison traps. No shame.
+      Just small, brave steps back home to yourself — exactly as you are.
+    </p>
+  </section>
+
+  <section class="about-section founder-note">
+    <h2>A Note from the Heart Behind WellNest</h2>
+    <p>
+      WellNest wasn’t born from a single moment. It was built out of a thousand tiny ones — the quiet ache of losing parts of myself I thought I had to be, the joy of becoming parts I didn’t know I could. 
+    </p>
+    <p>
+      It grew during the wild seasons of my life: moving through the shifting roles of daughter, sister, aunt, wife, girlfriend, mother — and sometimes, standing entirely alone. It grew in the tired places, the terrified places, the places brimming with gratitude so fierce it felt like it might tear me open.
+    </p>
+    <p>
+      I spent years sprinting toward someone else's idea of "enough" — balancing ambition and caretaking, giving and giving until I barely recognized the woman in the mirror. Life, in its stubborn mercy, finally invited me to stop. To listen. To gather up all the messy, brilliant pieces I had dropped along the way.
+    </p>
+    <p>
+      WellNest was born from that gathering. A place where wellness isn’t about perfection or achievement, but about presence. A place to honor the lost nights, the almosts, the beginnings you can’t explain yet — and the slow, sacred art of becoming.
+    </p>
+    <p>
+      Every word here, every gentle nudge, every small, stubborn hope — they are love letters to the version of you that is tired but trying. Afraid but still reaching. Proud, broken, healing, grateful, real.
+    </p>
+    <p>
+      Thank you for letting WellNest be a part of your story. I'm proud of the woman who brought me here — and I'm proud of the woman I am still becoming.
+    </p>
+  </section>
+  
+
+  <section class="about-section">
+    <h2>Explore Deeper: Wellness Reads We Love</h2>
+    <p>
+      Growth takes root when we nourish ourselves with wisdom. Here’s a lovingly curated list of transformational books we recommend:
+    </p>
+    <ul class="about-list">
+      <li><a href="https://www.goodreads.com/book/show/33507179-braving-the-wilderness" target="_blank">Braving the Wilderness — Brené Brown</a></li>
+      <li><a href="https://www.goodreads.com/book/show/36373325-untamed" target="_blank">Untamed — Glennon Doyle</a></li>
+      <li><a href="https://www.goodreads.com/book/show/19501.The_Gift" target="_blank">The Gift — Hafiz (translated by Daniel Ladinsky)</a></li>
+      <li><a href="https://www.goodreads.com/book/show/21519654-the-art-of-stillness" target="_blank">The Art of Stillness — Pico Iyer</a></li>
+      <li><a href="https://www.goodreads.com/book/show/10257.The_Dance_of_the_Dissident_Daughter" target="_blank">The Dance of the Dissident Daughter — Sue Monk Kidd</a></li>
+      <li><a href="https://www.goodreads.com/book/show/12067.Bird_by_Bird" target="_blank">Bird by Bird — Anne Lamott</a></li>
+      <li><a href="https://www.goodreads.com/book/show/13376309-the-light-between-us" target="_blank">The Light Between Us — Laura Lynne Jackson</a></li>
+    </ul>
+    <p>
+      *This is just the beginning — we believe your library should be as evolving and expansive as your wellness journey.*
+    </p>
+  </section>
+
+  <div class="about-hero">
+    <img src="{% static 'images/wellNestLogo.svg' %}" alt="WellNest Logo" class="about-hero-img">
+  </div>
+<br>
 </section>
 {% endblock %}

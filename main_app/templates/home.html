@@ -1,9 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-  <section class="home-intro">
-    <h1>Welcome to WellNest 🌿</h1>
-    <p>Your journey to daily wellness begins here.</p>
-    <a href="#" class="btn-start">Start Your Journey</a>  <!-- We can style this later -->
-  </section>
+
+<section class="home-hero">
+  <img src="{% static 'images/wellNestLogo.svg' %}" alt="WellNest Logo" class="home-hero-img">
+</section>
+
+<section class="home-intro">
+  <h1>- Welcome to WellNest -</h1>
+    <p class="intro-text">
+        This is your gentle space to begin again — and again, and again — as many times as your brave heart needs.
+        <br><br>
+        At WellNest, we believe growth doesn't have to shout to be real. Quiet victories, invisible healing, small, stubborn hope — these are the threads you are weaving into the masterpiece of your life.
+        <br><br>
+        Here, your journey is honored. Your pauses are sacred. Your slow, silent progress is powerful beyond measure, even when no one else can see it yet.
+        <br><br>
+        Welcome home to a place that holds you exactly as you are — tired, triumphant, unfinished — and gently reminds you that you are already becoming everything you were always meant to be.
+    </p>
+
+  <a href="#" class="btn-start">Start Your Journey</a>
+</section>
+
 {% endblock %}

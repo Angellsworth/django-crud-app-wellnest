@@ -10,20 +10,151 @@
     {% block head %}{% endblock %}
 </head>
 <body>
-    <nav>
-        <a href="{% url 'home' %}">Home</a> |
-        <a href="{% url 'about' %}">About</a> |
-        <a href="#">Dashboard (coming soon)</a>
-    </nav>
+
+    <div class="top-banner">
+        <span id="quote-text">Your daily check-in for a more mindful you.</span>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <img src="{% static 'images/whiteNestHouse.svg' %}" alt="WellNest Logo" class="navbar-logo">
+                <span class="site-title">WellNest</span>
+
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'about' %}">About</a>
+
+                <!-- Profile Dropdown -->
+                <div class="dropdown">
+                    <a href="#">Profile</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'habit-index' %}">Habits</a>
+                        <a href="#">Reflections</a>
+                        <a href="#">Mood Tracker</a>
+                    </div>
+                </div>
+
+                <!-- Settings Dropdown -->
+                <div class="dropdown">
+                    <a href="#">Settings</a>
+                    <div class="dropdown-content">
+                        <a href="#">Account Settings</a>
+                        <a href="#">Notifications</a>
+                        <a href="#">Privacy</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="navbar-right">
+                <a href="#" class="btn-outline">Log In</a>
+                <a href="#" class="btn-solid">Sign Up</a>
+            </div>
+        </nav>
+    </header>
 
     <main>
         {% block content %}
         <!-- Individual page content will be inserted here -->
         {% endblock %}
-      </main>
-    
-      <footer>
+
+        <script>
+            const quotes = [
+                "Your daily check-in for a more mindful you.",
+                "Small steps build lasting change.",
+                "Progress, not perfection.",
+                "You are becoming. Trust the process.",
+                "Pause. Breathe. Begin again.",
+                "Gentleness is strength.",
+                "Your journey matters.",
+                "Owning our story and loving ourselves through that process is the bravest thing we’ll ever do. — Brené Brown",
+                "What is stronger than the human heart which shatters over and over and still lives? — Rupi Kaur",
+                "You are not broken. You are breaking through. — Alok Vaid-Menon",
+                "We delight in the beauty of the butterfly but rarely admit the changes it has gone through to achieve that beauty. — Maya Angelou",
+                "Be soft. Do not let the world make you hard. — Iain S. Thomas",
+                "The soul always knows what to do to heal itself. The challenge is to silence the mind. — Caroline Myss",
+                "You do not just wake up and become the butterfly. Growth is a process. — Rupi Kaur",
+                "You are allowed to be both a masterpiece and a work in progress simultaneously. — Sophia Bush",
+                "Courage starts with showing up and letting ourselves be seen. — Brené Brown",
+                "Become who you were meant to be. — Sue Monk Kidd",
+                "I have found that among its other benefits, giving liberates the soul of the giver. — Maya Angelou",
+                "Your life is a story of transition. You are always leaving one chapter behind while moving on to the next. — Sue Monk Kidd",
+                "The ache for home lives in all of us. — Maya Angelou",
+                "Healing is an art. It takes time, it takes practice. It takes love. — Maza Dohta",
+                "Even when the future is uncertain, you can still walk boldly forward. — Glennon Doyle",
+                "Tell me, what is it you plan to do with your one wild and precious life? — Mary Oliver",
+                "If you were born with the weakness to fall, you were born with the strength to rise. — Rupi Kaur",
+                "You can be shattered and still be whole. — Oprah Winfrey",
+                "Perhaps the butterfly is proof that you can go through a great deal of darkness yet still become something beautiful. — Beau Taplin",
+                "The only way out is through. — Robert Frost",
+                "No one belongs here more than you. — Brené Brown",
+                "I want to unfold. I don't want to stay folded anywhere, because where I am folded, there I am a lie. — Rainer Maria Rilke",
+                "And still, like dust, I'll rise. — Maya Angelou",
+                "You do not just wake up and become the butterfly — growth is a process. — Rupi Kaur",
+                "To love oneself is the beginning of a lifelong romance. — Oscar Wilde",
+                "I will not rescue you, for you are not powerless. I will not fix you, for you are not broken. — Al-Anon",
+                "Be patient with the layers of yourself. The unfolding is holy. — Sue Monk Kidd",
+                "Your mess can become your message. — Robin Roberts",
+                "You don't have to be fearless, just willing. — Glennon Doyle",
+                "What is yours will find you. — Brianna Wiest",
+                "I am made of all the people I have met. — Nayyirah Waheed",
+                "Grief is praise, because it is the natural way love honors what it misses. — Martín Prechtel",
+                "Hope is a revolutionary act. — Alok Vaid-Menon",
+                "Tell me, what is it you plan to do with your one wild and precious life? — Mary Oliver",
+                "There is no greater agony than bearing an untold story inside you. — Maya Angelou",
+                "You don't have to see the whole staircase, just take the first step. — Martin Luther King Jr.",
+                "Sometimes courage is the quiet voice at the end of the day saying, 'I will try again tomorrow.' — Mary Anne Radmacher",
+                "You are not too much. You have never been too much. You are exactly enough. — Unknown",
+                "When you are broken open, you are open to the whole world. — Rumi",
+                "Healing is not linear. Grace yourself. — Alex Elle",
+                "Nothing blooms all year. — Alok Vaid-Menon",
+                "Your softness is a revolution. — Nayyirah Waheed",
+                "Joy is not made to be a crumb. — Mary Oliver",
+                "The wound is the place where the light enters you. — Rumi",
+                "Discipline is choosing between what you want now and what you want most. — Abraham Lincoln",
+                "The secret of your success is found in your daily routine. — John C. Maxwell",
+                "You don't rise to the level of your goals. You fall to the level of your systems. — James Clear",
+                "Consistency will beat intensity. Show up even when it’s hard. — Unknown",
+                "Self-respect is built by keeping the promises you make to yourself. — Ed Mylett",
+                "Rest is not a reward for finishing. Rest is how you continue. — Brianna Wiest",
+                "The habits you build are the foundation of the life you dream about. — Atomic Habits",
+                "You are allowed to outgrow people who aren't growing. — Unknown",
+                "Boundaries are the distance at which I can love you and love myself simultaneously. — Prentis Hemphill",
+                "Self-care is not self-indulgence, it is self-preservation. — Audre Lorde",
+                "One small positive action in the morning can change your whole day. — Mel Robbins",
+                "You were not made to shrink into something smaller. You were made to expand. — Cleo Wade",
+                "Healing is messy and nonlinear. Be proud you're still here. — Unknown",
+                "Success is the sum of small efforts repeated day in and day out. — Robert Collier",
+                "You get what you repeat. Choose wisely. — James Clear",
+                "Your future is hidden in your daily choices. — Unknown",
+                "Healing begins when you stop pretending you're fine. — Brianna Wiest",
+                "Every act of discipline moves you closer to freedom. — Robin Sharma",
+                "Protect your energy. You become what you surround yourself with. — Jay Shetty",
+                "You don't have to believe in magic. You are magic. — Unknown",
+            ];
+          
+            let currentQuoteIndex = Math.floor(Math.random() * quotes.length); 
+            const quoteElement = document.getElementById('quote-text');
+          
+            function showNextQuote() {
+              currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+              quoteElement.style.opacity = 0;
+          
+              setTimeout(() => {
+                quoteElement.textContent = quotes[currentQuoteIndex];
+                quoteElement.style.opacity = 1;
+              }, 500);
+            }
+          
+            window.onload = () => {
+              quoteElement.textContent = quotes[currentQuoteIndex];
+              setInterval(showNextQuote, 10000); 
+            };
+          </script>
+      
+    </main>
+    <footer>
         <p>© 2025 WellNest — Curated Wellness</p>
-      </footer>
+    </footer>
 </body>
 </html>

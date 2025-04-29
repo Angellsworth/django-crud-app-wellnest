@@ -12,15 +12,17 @@
 </section>
 
 <section class="card-container">
-  {% for habit in habits %}
-  <div class="card">
-    <div class="card-content">
-      <h2 class="card-title">{{ habit.title }}</h2>
-      <p><strong>Frequency:</strong> {{ habit.frequency }}</p>
-      <p>{{ habit.description }}</p>
-      <p><small>Started on: {{ habit.created_at }}</small></p>
+    {% for habit in habits %}
+    <div class="card">
+      <div class="card-content">
+        <h2 class="card-title">
+          <a href="{% url 'habit-detail' habit.id %}">{{ habit.title }}</a>
+        </h2>
+        <p><strong>Frequency:</strong> {{ habit.frequency }}</p>
+        <p>{{ habit.description }}</p>
+        <p><small>Started on: {{ habit.created_at }}</small></p>
+      </div>
     </div>
-  </div>
-  {% endfor %}
-</section>
+    {% endfor %}
+  </section>
 {% endblock %}
