@@ -24,3 +24,7 @@ def habit_create(request):
         form = HabitForm()
 
     return render(request, 'habits/habit_form.html', {'form': form})
+
+def habit_detail(request, habit_id):
+    habit = Habit.objects.get(id=habit_id)
+    return render(request, 'habits/habit_detail.html', {'habit': habit})
