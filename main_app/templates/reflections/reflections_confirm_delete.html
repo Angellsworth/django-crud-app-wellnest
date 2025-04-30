@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/reflections/reflection_delete.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="delete-container">
+  <h1>Delete this journal entry?</h1>
+  <p>This can’t be undone. Are you sure you want to delete your entry from {{ reflection.date }}?</p>
+
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn delete-btn">Yes, Delete</button>
+    <a href="{% url 'reflection-detail' reflection.id %}" class="btn cancel-btn">Cancel</a>
+  </form>
+</section>
+{% endblock %}

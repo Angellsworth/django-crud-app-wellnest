@@ -16,11 +16,9 @@
     {{ form.as_p }}
     <div class="form-buttons">
       <button type="submit" class="btn submit">{{ submit_label }}</button>
-    
-      {% if back_link == 'habit-detail' %}
-        <a href="{% url back_link habit.id %}" class="btn back-btn">Back to Habit</a>
-      {% else %}
-        <a href="{% url back_link %}" class="btn back-btn">Back to All Habits</a>
+
+      {% if back_link %}
+        <a href="{% url back_link %}" class="btn back-btn">Back to Moods</a>
       {% endif %}
     </div>
   </form>

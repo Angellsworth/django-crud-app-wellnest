@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/habits/habit-form.css' %}">
+<link rel="stylesheet" href="{% static 'css/reflections/reflection_form.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -14,13 +14,14 @@
   <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
+
     <div class="form-buttons">
       <button type="submit" class="btn submit">{{ submit_label }}</button>
-    
-      {% if back_link == 'habit-detail' %}
-        <a href="{% url back_link habit.id %}" class="btn back-btn">Back to Habit</a>
+
+      {% if back_link == 'reflection-detail' %}
+        <a href="{% url 'reflection-detail' reflection.id %}" class="btn back-btn">Back to Reflection</a>
       {% else %}
-        <a href="{% url back_link %}" class="btn back-btn">Back to All Habits</a>
+        <a href="{% url back_link %}" class="btn back-btn">Back to Reflections</a>
       {% endif %}
     </div>
   </form>

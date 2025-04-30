@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/habits/habit-index.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <h1>Reflection Journal</h1>
+  <img src="{% static 'images/whiteNestHouse.svg' %}" alt="WellNest House Logo" class="tiny-logo">
+</section>
+
+<section class="habit-groups">
+  <fieldset class="habit-group">
+    <legend class="habit-legend">Your Entries</legend>
+
+    <div class="section-actions">
+        <a href="{% url 'reflection-create' %}" class="btn-solid small-btn">+ Add Journal Entry</a>
+    </div>
+
+    <div class="card-container">
+      {% for reflection in reflections %}
+        <a href="{% url 'reflection-detail' reflection.id %}" class="card">
+            <div class="card-content">
+            <h3 class="card-title">Entry - {{ reflection.date }}</h3>
+            <p>{{ reflection.content|truncatewords:20 }}</p>
+            </div>
+        </a>
+      {% empty %}
+        <p class="no-data">You haven’t written anything yet. Start your first journal entry above.</p>
+      {% endfor %}
+    </div>
+  </fieldset>
+</section>
+{% endblock %}

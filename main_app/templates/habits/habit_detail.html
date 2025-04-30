@@ -1,10 +1,92 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/habits/habit-detail.css' %}">
+{% endblock %}
 
 {% block content %}
-<h1>{{ habit.title }}</h1>
-<p>{{ habit.description }}</p>
-<p><strong>Frequency:</strong> {{ habit.frequency }}</p>
-<p><strong>Created At:</strong> {{ habit.created_at }}</p>
+<div class="habit-detail-grid">
 
-<a href="{% url 'habit-index' %}">← Back to All Habits</a>
+  <!-- Left column -->
+  <section class="habit-meta">
+    <h1>{{ habit.title }}</h1>
+    <p>{{ habit.description }}</p>
+    <p><strong>Frequency:</strong> {{ habit.frequency }}</p>
+    <p><strong>Date Created:</strong> {{ habit.created_at }}</p>
+
+    <div class="habit-detail-actions">
+      <a href="{% url 'habit-index' %}">Back</a>
+      <a href="{% url 'habit-edit' habit.id %}">Edit</a>
+      <a href="{% url 'habit-delete' habit.id %}">Delete</a>
+    </div>
+
+  </section>
+
+  <!-- Right column -->
+  <section class="habit-log">
+    <div class="habit-log-box">
+         
+      <div class="checkin-history">
+        {% if habit.habitcheckin_set.all %}
+          <h4>Check-in History</h4>
+
+          {% if form %}
+            <form method="POST" action="{% url 'add-checkin' habit.id %}" class="checkin-form">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="checkin-submit-button">Log a Check-in</button>
+            </form>
+          {% else %}
+            <form method="GET" action="" class="checkin-form">
+              <button type="submit" name="show_form" value="true" class="checkin-submit-button">
+                Log a Check-in
+              </button>
+            </form>
+          {% endif %}
+      
+          <div class="checkin-carousel-container">
+            <div class="carousel-blur left-blur"></div>
+            <div class="carousel-blur right-blur"></div>
+
+            <button class="carousel-arrow left" onclick="scrollCheckins(-1)">‹</button>
+      
+            <div class="checkin-carousel" id="checkinCarousel">
+              {% for checkin in habit.habitcheckin_set.all %}
+                <div class="checkin-card">
+                  <p><strong>{{ checkin.date }}</strong></p>
+                  {% if checkin.note %}
+                    <p>{{ checkin.note }}</p>
+                  {% else %}
+                    <p><em>No notes</em></p>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+      
+            <button class="carousel-arrow right" onclick="scrollCheckins(1)">›</button>
+          </div>
+
+
+      
+        {% else %}
+          <p>No check-ins yet.</p>
+        {% endif %}
+      </div>
+
+      <script>
+        function scrollCheckins(direction) {
+          const container = document.getElementById('checkinCarousel');
+          const scrollAmount = 220;
+          console.log('Scrolling', direction); // This helps you test it's working
+          container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+      </script>
+  
+    </div>
+  </section>
+
+
+</div>
+
 {% endblock %}

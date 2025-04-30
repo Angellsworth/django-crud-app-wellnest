@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600&display=swap');
+
+/* Grid Layout */
+.mood-detail-grid {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+}
+
+/* Left Panel */
+.mood-meta {
+    border-right: 2px solid #ddd;
+    padding-right: 2rem;
+}
+
+.mood-meta h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.mood-meta p {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Right Panel */
+.mood-log-box {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.mood-form {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 2rem;
+}
+
+.mood-form p {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.mood-submit-button {
+    border: 1.5px solid #3c5d76;
+    color: #3c5d76;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.mood-submit-button:hover {
+    filter: brightness(1.05);
+}
+
+/* Action Buttons */
+.mood-detail-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0.5rem 0;
+}
+
+.mood-detail-actions a {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: 1.5px solid;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+/* Back */
+.mood-detail-actions a:nth-child(1) {
+    border-color: #434343;
+    color: #434343;
+}
+
+.mood-detail-actions a:nth-child(1):hover {
+    background-color: #434343;
+    color: white;
+}
+
+/* Edit */
+.mood-detail-actions a:nth-child(2) {
+    border-color: #6c6c6c;
+    color: #6c6c6c;
+}
+
+.mood-detail-actions a:nth-child(2):hover {
+    background-color: #6c6c6c;
+    color: white;
+}
+
+/* Delete */
+.mood-detail-actions a:nth-child(3) {
+    border-color: var(--color-accent-optional);
+    color: var(--color-accent-optional);
+}
+
+.mood-detail-actions a:nth-child(3):hover {
+    background-color: var(--color-accent-optional);
+    color: white;
+}

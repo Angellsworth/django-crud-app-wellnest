@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/habits/habit_delete.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="delete-container">
+  <h1>Delete "{{ habit.title }}"?</h1>
+  <p>This action cannot be undone. Are you sure?</p>
+
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn delete-btn">Yes, delete</button>
+    <a href="{% url 'habit-detail' habit.id %}" class="btn cancel-btn">Cancel</a>
+  </form>
+</section>
+{% endblock %}

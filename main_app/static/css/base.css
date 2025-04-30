@@ -1,4 +1,4 @@
-/* Font Imports */
+/* ---------- Font Imports & Root Variables ---------- */
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100..900&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Style+Script&display=swap');
 
 @font-face {
@@ -17,7 +17,7 @@
     --color-accent-optional: #754668;
 }
 
-/* General Styles */
+/* ---------- Base Body Styling ---------- */
 body {
     font-family: 'Be Vietnam Pro', Arial, sans-serif;
     background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
@@ -30,7 +30,7 @@ body {
     flex-direction: column;
 }
 
-/* Top Banner */
+/* ---------- Top Banner Quote ---------- */
 .top-banner {
     background-color: #457d58c5;
     color: var(--color-background);
@@ -48,7 +48,7 @@ body {
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Navbar */
+/* ---------- Navbar Styles ---------- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -56,7 +56,7 @@ body {
     padding: 0.75rem 2rem;
     background-color: #fcf7ea7b;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    border-bottom: .8px solid var(--color-brand-primary);
+    border-bottom: 0.8px solid var(--color-brand-primary);
 }
 
 .navbar-left,
@@ -84,7 +84,7 @@ body {
     text-decoration: none;
     color: var(--color-text-primary);
     font-weight: 500;
-    font-size: .8rem;
+    font-size: 0.8rem;
     position: relative;
     transition: all 0.4s ease;
 }
@@ -111,7 +111,7 @@ body {
     width: 100%;
 }
 
-/* Dropdown Menu */
+/* ---------- Dropdown Menu ---------- */
 .dropdown {
     position: relative;
 }
@@ -141,7 +141,7 @@ body {
 .dropdown-content a {
     padding: 12px 16px;
     font-weight: 400;
-    font-size: .9rem;
+    font-size: 0.9rem;
     color: var(--color-text-primary);
     text-decoration: none;
     transition: all 1s ease;
@@ -152,14 +152,16 @@ body {
     color: var(--color-text-primary);
 }
 
-/* Buttons */
+/* ---------- Button Styles ---------- */
+.btn-solid,
 .btn-outline,
-.btn-solid {
+.small-btn {
     text-decoration: none;
-    font-size: .9rem;
-    padding: 0.1rem .5rem;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.7rem;
     border-radius: 8px;
-    font-weight: 400;
+    font-weight: 500;
+    display: inline-block;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -185,170 +187,11 @@ body {
     color: var(--color-text-primary);
 }
 
-/* Footer */
+/* ---------- Footer ---------- */
 footer {
     background-color: #457d58c5;
     color: var(--color-background);
     text-align: center;
     padding: 1rem;
     font-size: 0.9rem;
-}
-
-/* Home Page */
-.home-hero,
-.about-hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0.5rem;
-}
-
-.home-hero-img,
-.about-hero-img {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    margin: -15rem 0 -16rem 0;
-}
-
-.home-intro {
-    text-align: center;
-    margin: 3rem auto;
-    padding: 2rem;
-    max-width: 700px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 12px;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.home-intro h1 {
-    font-family: 'Brown Sugar', sans-serif;
-    font-size: 2.5rem;
-    color: var(--color-brand-primary);
-    margin-bottom: 1rem;
-}
-
-.home-intro .intro-text {
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-weight: 200;
-    font-size: 1.125rem;
-    color: var(--color-text-primary);
-    line-height: 1.8;
-}
-
-.btn-start {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 0.75rem 2rem;
-    background-color: #457d58c5;
-    color: var(--color-background);
-    font-weight: 500;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn-start:hover {
-    background-color: var(--color-accent-optional);
-}
-
-/* About Page */
-.about-page {
-    max-width: 960px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-.about-title {
-    font-family: 'Brown Sugar', cursive;
-    font-size: 2.75rem;
-    text-align: center;
-    color: var(--color-brand-primary);
-    margin-bottom: 0.5rem;
-}
-
-.about-divider {
-    width: 60px;
-    height: 3px;
-    background-color: var(--color-accent-optional);
-    border: none;
-    margin: 1rem auto 2rem auto;
-}
-
-.tagline {
-    font-family: 'Style Script', cursive;
-    font-size: 1.5rem;
-    color: var(--color-text-secondary);
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 2rem;
-}
-
-.about-section {
-    margin-bottom: 3rem;
-}
-
-.about-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--color-accent-optional);
-}
-
-.about-section p {
-    font-size: 1.125rem;
-    color: var(--color-text-primary);
-    margin-bottom: 1rem;
-}
-
-.about-list {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.about-list li {
-    background: var(--color-brand-secondary);
-    margin-bottom: 0.75rem;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    color: var(--color-text-primary);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.about-list a {
-    color: var(--color-accent-optional);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.about-list a:hover {
-    text-decoration: underline;
-}
-
-.founder-note {
-    background: linear-gradient(90deg, var(--color-background) 0%, var(--color-brand-secondary) 100%);
-    border-left: 4px solid var(--color-accent-optional);
-    padding: 2rem;
-    border-radius: 12px;
-    margin-top: 3rem;
-    font-style: italic;
-}
-
-.founder-note h2 {
-    font-family: 'Brown Sugar', cursive;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--color-brand-primary);
-}
-
-.founder-note p {
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-weight: 300;
-    font-size: 1.1rem;
-    color: var(--color-text-primary);
-    line-height: 1.8;
-    margin-bottom: 1rem;
 }
