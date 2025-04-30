@@ -1,3 +1,9 @@
+Absolutely. Here’s a simple, soft, and clean version of your README — still warm and welcoming, but without the extras that might feel too loud or busy:
+
+⸻
+
+
+
 # 🌿 WellNest
 
 *Your gentle space to begin again — as many times as you need.*
@@ -16,19 +22,18 @@ It’s a quiet place to track what matters most: how you’re feeling, what you�
 
 - Django (Python)
 - PostgreSQL
-- JavaScript
 - Django Templates, HTML, CSS
-- Deployed on Heroku
+- Hosted on Render
 
 ---
 
 ## Features
 
-- Secure user authentication
-- Daily habit tracking (Create, Read, Update, Delete)
-- Mood check-ins with emotional tracking
-- Journal-style reflections
-- Simple, forest-inspired design
+- Create an account and log in securely
+- Track daily habits with full CRUD
+- Write personal reflections
+- Log emotional moods
+- Calm, forest-inspired interface
 
 ---
 
@@ -55,3 +60,42 @@ pip install -r requirements.txt
 
 python3 manage.py migrate
 python3 manage.py runserver
+
+Visit http://localhost:8000 in your browser.
+
+⸻
+
+Screenshots
+
+Home	Check-In	Habits
+		
+
+
+
+⸻
+
+Roadmap
+	•	Habits, moods, and reflections
+	•	User login system
+	•	Mood-to-habit charts
+	•	AI wellness reflections
+	•	Mobile-friendly design
+
+⸻
+
+License
+
+MIT License — see LICENSE.txt for details.
+
+⸻
+
+Contact
+
+Created by Angela Ellsworth.
+Feel free to reach out.
+
+⸻
+
+“Flowers don’t chase bees. They bloom and trust the right things will come.” 🌸
+
+---
