@@ -43,3 +43,13 @@ class MoodForm(forms.ModelForm):
     class Meta:
         model = MoodEntry
         fields = ['date', 'mood', 'note']
+        widgets = {
+            'date': forms.DateInput(
+                format='%Y-%m-%d',
+                attrs={'type': 'date'}  # this gives the browser calendar input
+            ),
+            'note': forms.Textarea(attrs={
+                'rows': 2,
+                'placeholder': 'Optional thoughts or notes...'
+            }),
+        }

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/habits/habit-form.css' %}">
+<link rel="stylesheet" href="{% static 'css/moods/mood_form.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -14,11 +14,13 @@
   <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
+
     <div class="form-buttons">
       <button type="submit" class="btn submit">{{ submit_label }}</button>
-
-      {% if back_link %}
-        <a href="{% url back_link %}" class="btn back-btn">Back to Moods</a>
+      {% if back_link == 'mood-detail' %}
+        <a href="{% url back_link mood.id %}" class="btn back-btn">Back</a>
+      {% else %}
+        <a href="{% url back_link %}" class="btn back-btn">Back</a>
       {% endif %}
     </div>
   </form>

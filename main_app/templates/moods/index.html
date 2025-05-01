@@ -2,53 +2,109 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/habits/habit-index.css' %}">
+  <link rel="stylesheet" href="{% static 'css/habits/habit-index.css' %}">
+  <link rel="stylesheet" href="{% static 'css/moods/mood_index.css' %}">
 {% endblock %}
 
 {% block content %}
-<section class="page-header">
-  <h1>Your daily emotional weather</h1>
-  <img src="{% static 'images/whiteNestHouse.svg' %}" alt="WellNest House Logo" class="tiny-logo">
-</section>
+  <section class="page-header">
+    <h1>Your daily emotional weather</h1>
+    <img src="{% static 'images/whiteNestHouse.svg' %}" alt="WellNest House Logo" class="tiny-logo">
+  </section>
 
-<section class="habit-groups">
-  <fieldset class="habit-group">
-    <legend class="habit-legend">Mood Tracker</legend>
+  <section class="habit-groups">
+    <fieldset class="habit-group">
+      <legend class="habit-legend">Mood Tracker</legend>
 
-    <div class="section-actions">
+      <div class="section-actions">
         <a href="{% url 'mood-create' %}" class="btn-solid small-btn">+ Add Mood</a>
-    </div>
+      </div>
 
-    <div class="card-container">
-      {% for mood in moods %}
-      <a href="{% url 'mood-detail' mood.id %}" class="card">
-        <div class="card-content">
-          <h3 class="card-title">Mood: {{ mood.mood }}</h3>
-          <p><strong>Date:</strong> {{ mood.date }}</p>
-          <p>{{ mood.note|truncatewords:10 }}</p>
-        </div>
-      </a>
-      {% endfor %}
-    </div>
-  </fieldset>
-</section>
-{% endblock %}
-<!-- <fieldset class="habit-group">
-    <legend class="habit-legend">Mood Tracker</legend>
-  
-    <div class="section-actions">
-      <a href="#" class="btn-solid small-btn">+ Add Mood</a>
-    </div>
-  
-    <div class="card-container">
-      {% for mood in moods %}
-          <div class="card">
+      <div class="card-container">
+        {% for mood in moods %}
+          <a href="{% url 'mood-detail' mood.id %}" class="card">
             <div class="card-content">
-              <h3 class="card-title">Mood: {{ mood.mood }}</h3>
+              <h3 class="card-title">{{ mood.get_mood_display }}</h3>
               <p><strong>Date:</strong> {{ mood.date }}</p>
-              <p>{{ mood.note }}</p>
+              {% if mood.note %}
+                <p>{{ mood.note|truncatewords:12 }}</p>
+              {% endif %}
             </div>
-          </div>
-      {% endfor %}
-    </div>
-  </fieldset> -->
+          </a>
+        {% empty %}
+          <p class="no-data">No mood entries yet. Start by logging one above.</p>
+        {% endfor %}
+      </div>
+
+      <section class="mood-chart-container">
+        <h2>Your Mood Trend (Past {{ range }} Days)</h2>
+        <canvas id="moodTrendChart" width="400" height="200"></canvas>
+      </section>
+
+      <div class="range-buttons">
+        <a href="?range=7" class="{% if range == 7 %}active{% endif %}">7 Days</a>
+        <a href="?range=30" class="{% if range == 30 %}active{% endif %}">30 Days</a>
+        <a href="?range=90" class="{% if range == 90 %}active{% endif %}">90 Days</a>
+        <a href="?range=365" class="{% if range == 365 %}active{% endif %}">1 Year</a>
+      </div>
+    </fieldset>
+  </section>
+{% endblock %}
+
+{% block script %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('moodTrendChart').getContext('2d');
+
+    const moodChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: JSON.parse('{{ chart_labels|safe|escapejs }}'),
+        datasets: [{
+          label: 'Mood Score',
+          data: JSON.parse('{{ chart_data|safe|escapejs }}'),
+          borderColor: '#754668',
+          backgroundColor: 'rgba(117, 70, 104, 0.1)',
+          tension: 0.4,
+          fill: true,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 10,
+            title: {
+              display: true,
+              text: 'Mood (1 = 😢 to 10 = 😄)'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Date'
+            }
+          }
+        },
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const emojiMap = {
+                  1: '😢', 2: '😠', 3: '😩', 4: '😰', 5: '😐',
+                  6: '😊', 7: '🙂', 8: '🌱', 9: '🙏', 10: '😄'
+                };
+                const score = context.parsed.y;
+                return `Mood Score: ${score} ${emojiMap[score] || ''}`;
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+{% endblock %}
