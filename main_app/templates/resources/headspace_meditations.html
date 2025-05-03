@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/resources/headspace.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="headspace-section">
+  <h1>Guided Meditations</h1>
+  <p>Explore calming practices to help center your mind and body.</p>
+  <!-- You can link to YouTube embeds or playlists here -->
+  <ul class="resource-list">
+    <li><a href="https://www.youtube.com/watch?v=inpok4MKVLM" target="_blank">5 Minute Meditation</a></li>
+    <li><a href="https://www.youtube.com/watch?v=ZToicYcHIOU" target="_blank">Body Scan for Beginners</a></li>
+    <li><a href="https://www.youtube.com/watch?v=MIr3RsUWrdo" target="_blank">Calming Anxiety</a></li>
+  </ul>
+</div>
+{% endblock %}

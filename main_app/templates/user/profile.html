@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/user/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+  <h1>Welcome back, {{ user.first_name|default:user.username }} 🌿</h1>
+  <p class="intro-line">Here’s your WellNest space for reflection, growth, and gentle progress.</p>
+
+  <div class="dashboard-grid">
+
+    <a href="{% url 'habit-index' %}" class="dashboard-card">
+      <img src="{% static 'images/habitLogo.png' %}" alt="Habits">
+      <h2>Habits</h2>
+      <p>Track daily goals and routines</p>
+    </a>
+
+    <a href="{% url 'reflection-index' %}" class="dashboard-card">
+      <img src="{% static 'images/journalLogo.png' %}" alt="Reflections">
+      <h2>Reflections</h2>
+      <p>Write and revisit journal entries</p>
+    </a>
+
+    <a href="{% url 'mood-index' %}" class="dashboard-card">
+      <img src="{% static 'images/moodsLogo.png' %}" alt="Mood Tracker">
+      <h2>Mood</h2>
+      <p>See how you’re feeling over time</p>
+    </a>
+
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="{% url 'delete_profile' %}" class="btn submit" style="background-color: #c0392b;">
+          Delete My Account
+        </a>
+      </div>
+
+  </div>
+</div>
+{% endblock %}

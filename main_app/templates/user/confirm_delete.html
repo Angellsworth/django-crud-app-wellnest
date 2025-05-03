@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/registration/signup.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="signup-wrapper">
+  <section class="signup-benefits">
+    <h2>Are you sure?</h2>
+    <ul>
+      <li><strong>This action is permanent.</strong></li>
+      <li>Your data and journal entries will be deleted.</li>
+      <li>We're sad to see you go 🥺</li>
+    </ul>
+  </section>
+
+  <section class="signup-form-box">
+    <h1>Delete Account</h1>
+    <p class="subhead">This cannot be undone.</p>
+    <form method="POST" class="form-container">
+      {% csrf_token %}
+      <button type="submit" class="btn submit">Yes, Delete My Account</button>
+    </form>
+    <p class="login-prompt">
+      Changed your mind? <a href="{% url 'profile' %}">Go back to profile.</a>
+    </p>
+  </section>
+</div>
+{% endblock %}

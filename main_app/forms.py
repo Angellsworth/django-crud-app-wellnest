@@ -1,13 +1,38 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
 from .models import Habit, HabitCheckIn, JournalEntry, MoodEntry
 
+
+# ──────────────── User Forms ────────────────
+
+class CustomUserCreationForm(UserCreationForm):
+    first_name = forms.CharField(max_length=30, required=False, label="First Name")
+    last_name = forms.CharField(max_length=30, required=False, label="Last Name")
+
+    class Meta(UserCreationForm.Meta):
+        model = User
+        fields = UserCreationForm.Meta.fields + ('first_name', 'last_name')
+
+
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'email']
+        labels = {
+            'first_name': 'Your Name',
+        }
+
+
 # ──────────────── Habit Forms ────────────────
+
 class HabitForm(forms.ModelForm):
     class Meta:
         model = Habit
         fields = ['title', 'description', 'frequency']
 
-# ──────────────── Habit Check-In Form ────────────────
+
 class HabitCheckInForm(forms.ModelForm):
     class Meta:
         model = HabitCheckIn
@@ -23,7 +48,9 @@ class HabitCheckInForm(forms.ModelForm):
             })
         }
 
-# ──────────────── Reflection / Journal Form ────────────────
+
+# ──────────────── Journal (Reflection) Form ────────────────
+
 class JournalForm(forms.ModelForm):
     class Meta:
         model = JournalEntry
@@ -38,7 +65,10 @@ class JournalForm(forms.ModelForm):
                 'placeholder': 'Write your thoughts here...'
             })
         }
+
+
 # ──────────────── Mood Entry Form ────────────────
+
 class MoodForm(forms.ModelForm):
     class Meta:
         model = MoodEntry
@@ -46,7 +76,7 @@ class MoodForm(forms.ModelForm):
         widgets = {
             'date': forms.DateInput(
                 format='%Y-%m-%d',
-                attrs={'type': 'date'}  # this gives the browser calendar input
+                attrs={'type': 'date'}
             ),
             'note': forms.Textarea(attrs={
                 'rows': 2,

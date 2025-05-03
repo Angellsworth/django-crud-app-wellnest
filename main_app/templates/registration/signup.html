@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/registration/signup.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="signup-wrapper">
+    <!-- Left: Benefits -->
+    <section class="signup-benefits">
+        <h2>Why WellNest?</h2>
+        <ul>
+          <li>
+            <strong>Track Everything</strong><br>
+            Keep all your habits, moods, reflections, and daily intentions in one nurturing space — made just for you.
+          </li>
+          <li>
+            <strong>Feel Grounded</strong><br>
+            Create simple, personal routines that reflect the real emotional landscape of your day-to-day life.
+          </li>
+          <li>
+            <strong>Grow Gently</strong><br>
+            Tiny check-ins lead to big clarity over time. No pressure, no hustle — just honest progress.
+          </li>
+          <li>
+            <strong>Look Back with Love</strong><br>
+            See how far you've come with your own beautifully human record of becoming.
+          </li>
+        </ul>
+      </section>
+  
+    <!-- Right: Form -->
+    <section class="signup-form-box">
+      <h1>Create Your Account</h1>
+      <p class="subhead">Start your wellness journal today.</p>
+  
+      {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+      {% endif %}
+  
+      <form method="POST" class="form-container">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn submit">Sign Up</button>
+      </form>
+  
+      <p class="login-prompt">Already have an account? <a href="{% url 'home' %}">Log in here.</a></p>
+    </section>
+  </div>
+{% endblock %}

@@ -14,7 +14,12 @@
   <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-
+    {% if prompt %}
+      <div class="prompt-card">
+        <strong>Prompt:</strong><br>
+        {{ prompt }}
+      </div>
+    {% endif %}
     <div class="form-buttons">
       <button type="submit" class="btn submit">{{ submit_label }}</button>
 
@@ -26,4 +31,69 @@
     </div>
   </form>
 </section>
+<script>
+  const prompts = [
+    "What does 'enough' feel like to you?",
+    "What part of your life feels most aligned right now?",
+    "Describe a moment you felt deeply understood.",
+    "What do you want to give yourself permission to release?",
+    "Who are you becoming?",
+    "What do you wish others knew about your inner world?",
+    "Write about a memory that makes you feel rooted.",
+    "What would it look like to be radically gentle with yourself today?",
+    "What fear are you ready to outgrow?",
+    "What needs your attention that you have been avoiding?",
+    "Where is softness showing up in your life?",
+    "What have you survived that you are proud of?",
+    "What would it mean to trust your timing?",
+    "Describe the kind of love you want to give yourself.",
+    "What are three beliefs you are ready to challenge?",
+    "What do you long for more of — and how can you invite it in?",
+    "What story are you telling yourself right now?",
+    "What are your emotional anchors?",
+    "What has your body been trying to tell you lately?",
+    "If you could whisper one truth to your younger self, what would it be?",
+    "What habits are nurturing the life you want?",
+    "What does a peaceful day look like for you?",
+    "Write a list of things you want to savor slowly.",
+    "What are you unlearning right now?",
+    "What does your healing voice sound like?",
+    "What do you want to remember the next time you are overwhelmed?",
+    "What are you proud of that no one else saw?",
+    "Describe a recent moment of bravery, no matter how small.",
+    "What does rest mean to you today?",
+    "If your heart wrote a letter to your mind, what would it say?",
+    "What does 'home' feel like in your body?",
+    "What is a soft boundary you want to create?",
+    "Who inspires you to grow gently?",
+    "What are you holding onto that is too heavy?",
+    "How do you reconnect with yourself after feeling off-center?",
+    "What does spaciousness mean to you?",
+    "What kind of support are you craving?",
+    "What season of life are you in right now — and how can you honor it?",
+    "What version of yourself are you shedding?",
+    "Where is love showing up unexpectedly?",
+    "What parts of you need celebration today?"
+  ];
+
+  const promptCard = document.querySelector('.prompt-card');
+  if (promptCard) {
+    const newPromptBtn = document.createElement('button');
+    newPromptBtn.textContent = '✨ New Prompt';
+    newPromptBtn.className = 'btn-outline';
+    newPromptBtn.style.marginBottom = '1rem';
+
+    newPromptBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const newPrompt = prompts[Math.floor(Math.random() * prompts.length)];
+      promptCard.innerHTML = "<strong>Prompt:</strong><br>" + newPrompt;
+    });
+
+    const wrapper = document.createElement('div');
+    wrapper.style.textAlign = 'center';
+    wrapper.style.marginBottom = '1rem';
+    wrapper.appendChild(newPromptBtn);
+    promptCard.parentNode.insertBefore(wrapper, promptCard.nextSibling);
+  }
+</script>
 {% endblock %}

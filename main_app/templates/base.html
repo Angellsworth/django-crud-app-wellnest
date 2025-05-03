@@ -21,11 +21,15 @@
                 <img src="{% static 'images/whiteNestHouse.svg' %}" alt="WellNest Logo" class="navbar-logo">
                 <span class="site-title">WellNest</span>
 
-                <a href="{% url 'home' %}">Home</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'profile' %}">Home</a>
+                    {% else %}
+                    <a href="{% url 'home' %}">Home</a>
+                    {% endif %}
                 
                 <!-- Profile Dropdown -->
                 <div class="dropdown">
-                    <a href="#">Profile</a>
+                    <a href="{% url 'profile' %}">Profile</a>  
                     <div class="dropdown-content">
                         <a href="{% url 'habit-index' %}">Habits</a>
                         <a href="{% url 'reflection-index' %}">Reflections</a>
@@ -35,21 +39,42 @@
                 
                 <a href="{% url 'about' %}">About</a>
                 
-                <!-- Settings Dropdown -->
-                <div class="dropdown">
-                    <a href="#">Settings</a>
-                    <div class="dropdown-content">
-                        <a href="#">Account Settings</a>
-                        <a href="#">Notifications</a>
-                        <a href="#">Privacy</a>
-                    </div>
+                            <!-- Resources Dropdown -->
+            <div class="dropdown">
+                <a href="{% url 'resource-index' %}">Resources</a>
+                <div class="dropdown-content">
+                <a href="{% url 'resource-index' %}">Wellness Resources</a>
+                <a href="{% url 'find-therapist' %}">Find a Therapist</a>
+                <a href="https://mentalhealthhotline.org/" target="_blank">Support Hotlines</a>
+                <a href="https://psychcentral.com/" target="_blank">Mental Health Articles</a>
                 </div>
+            </div>
+            
+            <!-- Headspace Dropdown -->
+            <div class="dropdown">
+                <a href="{% url 'headspace-index' %}">Headspace</a>
+                <div class="dropdown-content">
+                <a href="#">Guided Meditations</a>
+                <a href="#">Healing Recipes</a>
+                <a href="#">Gentle Workouts</a>
+                <a href="#">Decluttering & Feng Shui</a>
+                <a href="#">Mindfulness Retreats</a>
+                <a href="#">Vision Boards / Downloads</a>
+                </div>
+            </div>
 
             </div>
 
             <div class="navbar-right">
-                <a href="#" class="btn-outline">Log In</a>
-                <a href="#" class="btn-solid">Sign Up</a>
+                {% if user.is_authenticated %}
+                  <form id="logout-form" method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-outline">Log Out</button>
+                  </form>
+                {% else %}
+                  <a href="{% url 'login' %}" class="btn-outline">Log In</a>
+                  <a href="{% url 'signup' %}" class="btn-solid">Sign Up</a>
+                {% endif %}
             </div>
         </nav>
     </header>
@@ -154,7 +179,7 @@
           </script>
       
     </main>
-    <!-- inject javascript -->
+    
     {% block script %}{% endblock %} 
     <footer>
         <p>© 2025 WellNest — Curated Wellness</p>
