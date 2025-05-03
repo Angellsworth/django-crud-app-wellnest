@@ -1,0 +1,74 @@
+/* Headspace Resources Styling */
+
+.headspace-container {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    background-color: #fff;
+    border-radius: 1.5rem;
+    border: 2px solid var(--color-accent-optional);
+    box-shadow: 0 8px 30px rgba(117, 70, 104, 0.08);
+    text-align: center;
+}
+
+.headspace-container h1 {
+    font-family: 'Brown Sugar', cursive;
+    font-size: 2.4rem;
+    color: var(--color-accent-optional);
+    margin-bottom: 1rem;
+}
+
+.headspace-container p {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.resource-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.resource-card {
+    background-color: #fcf7ea;
+    border: 1.5px solid var(--color-brand-secondary);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 24px rgba(117, 70, 104, 0.12);
+}
+
+.resource-card h3 {
+    color: var(--color-brand-primary);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.resource-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+}
+
+.resource-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: var(--color-accent-optional);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.resource-card a:hover {
+    border-color: var(--color-accent-optional);
+}

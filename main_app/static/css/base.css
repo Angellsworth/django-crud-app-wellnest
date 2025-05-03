@@ -8,6 +8,41 @@
     font-style: normal;
 }
 
+/* Font Usage */
+body,
+p,
+a,
+li,
+button,
+input,
+textarea {
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 600;
+}
+
+/* Special Titles */
+.site-title,
+h1.welcome-title,
+/* Add a class if needed */
+.profile-container h1,
+.home-intro h1 {
+    font-family: 'Brown Sugar', cursive;
+}
+
+/* Optional cursive touches */
+.subtext,
+.quote,
+.intro-line {
+    font-family: 'Style Script', cursive;
+    font-weight: 400;
+}
+
 :root {
     --color-brand-primary: #457D58;
     --color-brand-secondary: #CCC9A1;

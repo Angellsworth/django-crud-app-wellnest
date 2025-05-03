@@ -1,27 +1,40 @@
-/* ==========================================================================
-   🏠 HOME PAGE STYLES
-   ========================================================================== */
-
-.home-hero {
+/* Wrap both sections side by side */
+main {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: 0.5rem;
+    align-items: stretch;
+    padding: 4rem 2rem;
 }
 
+/* Hero image container */
+.home-hero {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* Match height to intro section */
 .home-hero-img {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    margin: -16rem 0 -16rem 0;
+    height: 100%;
+    max-height: 1000px;
+    width: auto;
+    object-fit: contain;
+    transform: scale(2);
+    margin-right: 8rem;
+    margin-left: -2rem;
 }
 
+
+/* Intro text section */
 .home-intro {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
-    margin: 3rem auto;
     padding: 2rem;
-    max-width: 700px;
-    background-color: rgba(255, 255, 255, 0.5);
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.31);
     border-radius: 12px;
     backdrop-filter: blur(6px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -45,9 +58,9 @@
 .btn-start {
     display: inline-block;
     margin-top: 2rem;
-    padding: 0.75rem 2rem;
-    background-color: #457d58c5;
-    color: var(--color-background);
+    padding: 10px 0;
+    border: 2px solid var(--color-accent-optional);
+    color: var(--color-accent-optional);
     font-weight: 500;
     border-radius: 8px;
     text-decoration: none;
@@ -56,4 +69,33 @@
 
 .btn-start:hover {
     background-color: var(--color-accent-optional);
+    color: #fff;
+}
+
+.login .btn.submit {
+    background-color: var(--color-brand-primary);
+    color: #fff;
+    padding: 0.5rem 1.25rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login .btn.submit:hover {
+    background-color: var(--color-accent-optional);
+    color: #fff;
+}
+
+/* ========= 🌿 Mobile Responsive Layout ========= */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .home-intro {
+        text-align: center;
+    }
 }
