@@ -1,7 +1,7 @@
 #main_app>urls.py
 from django.urls import path
 from . import views
-
+from .views import mood_views
 
 
 urlpatterns = [
@@ -36,6 +36,7 @@ urlpatterns = [
     path('moods/<int:mood_id>/', views.mood_detail, name='mood-detail'),
     path('moods/<int:mood_id>/edit/', views.mood_edit, name='mood-edit'),
     path('moods/<int:mood_id>/delete/', views.mood_delete, name='mood-delete'),
+    path('api/mood-data/', mood_views.mood_data_api, name='mood-data-api'),
 
     # ──────────────── Resource Pages ────────────────
     path('resources/', views.resource_index, name='resource-index'),

@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from datetime import date, timedelta
+from django.http import JsonResponse
 import json
 
 from ..models import MoodEntry
@@ -98,3 +99,18 @@ def mood_delete(request, mood_id):
         return redirect('mood-index')
     return render(request, 'moods/mood_confirm_delete.html', {'mood': mood})
 
+@login_required
+def mood_data_api(request):
+    user = request.user
+    try:
+        days = int(request.GET.get('range', 30))
+    except ValueError:
+        days = 30
+
+    start_date = date.today() - timedelta(days=days)
+    moods = MoodEntry.objects.filter(user=user, date__gte=start_date).order_by('date')
+
+    labels = [m.date.strftime('%b %d') for m in moods]
+    scores = [MOOD_TO_SCORE.get(m.mood, 5) for m in moods]
+
+    return JsonResponse({'labels': labels, 'scores': scores})
