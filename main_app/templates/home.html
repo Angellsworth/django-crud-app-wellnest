@@ -21,7 +21,7 @@
     You’re welcome, just as you are.
   </p>
 
-      <a href="#" class="btn-start">Start Your Journey</a>
+      <a href="{% url 'signup' %}" class="btn-start">Start Your Journey</a>
 
       {% if not user.is_authenticated %}
       <section>

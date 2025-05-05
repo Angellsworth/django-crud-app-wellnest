@@ -2,12 +2,53 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/resources/headspace_index.css' %}">
+  <link rel="stylesheet" href="{% static 'css/resources/headspace_index.css' %}">
 {% endblock %}
 
 {% block content %}
+<!-- <body style="background: pink;"></body> -->
 <div class="headspace-container">
   <h1>Welcome to Your Headspace</h1>
   <p>This section offers tools for grounding, healing, and daily restoration. Explore mindfulness prompts, decluttering guides, and soulful rituals.</p>
+
+  <div class="headspace-grid">
+    
+    <a href="{% url 'headspace-meditations' %}" class="headspace-card">
+      🧘‍♀️
+      <h2>Guided Meditations</h2>
+      <p>Short practices to center your thoughts, slow your breathing, and re-enter your body.</p>
+    </a>
+
+    <a href="#" class="headspace-card">
+      🥣
+      <h2>Healing Recipes</h2>
+      <p>Warm, nourishing meals designed to calm the nervous system and feed your soul.</p>
+    </a>
+
+    <a href="#" class="headspace-card">
+      🧘‍♂️
+      <h2>Gentle Workouts</h2>
+      <p>Stretching, yoga flows, and low-impact movement to bring ease back into your body.</p>
+    </a>
+
+    <a href="#" class="headspace-card">
+      🧹
+      <h2>Decluttering & Feng Shui</h2>
+      <p>Simple rituals to clear your space and create emotional clarity through your environment.</p>
+    </a>
+
+    <a href="#" class="headspace-card">
+      🌲
+      <h2>Mindfulness Retreats</h2>
+      <p>Explore at-home and real-world options for stepping away, resting, and resetting.</p>
+    </a>
+
+    <a href="#" class="headspace-card">
+      🎯
+      <h2>Vision Boards / Downloads</h2>
+      <p>Printable prompts, journal cards, and goal-setting templates to inspire your next chapter.</p>
+    </a>
+
+  </div>
 </div>
 {% endblock %}

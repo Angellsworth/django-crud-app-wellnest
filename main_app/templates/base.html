@@ -37,43 +37,43 @@
                     </div>
                 </div>
                 
-                <a href="{% url 'about' %}">About</a>
                 
-                            <!-- Resources Dropdown -->
-            <div class="dropdown">
-                <a href="{% url 'resource-index' %}">Resources</a>
-                <div class="dropdown-content">
-                <a href="{% url 'resource-index' %}">Wellness Resources</a>
-                <a href="{% url 'find-therapist' %}">Find a Therapist</a>
-                <a href="https://mentalhealthhotline.org/" target="_blank">Support Hotlines</a>
-                <a href="https://psychcentral.com/" target="_blank">Mental Health Articles</a>
+                <!-- Resources Dropdown -->
+                <div class="dropdown">
+                    <a href="{% url 'resource-index' %}">Resources</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'resource-index' %}">Wellness Resources</a>
+                        <a href="{% url 'find-therapist' %}">Find a Therapist</a>
+                        <a href="https://mentalhealthhotline.org/" target="_blank">Support Hotlines</a>
+                        <a href="https://psychcentral.com/" target="_blank">Mental Health Articles</a>
+                    </div>
                 </div>
+                
+                <!-- Headspace Dropdown -->
+                <div class="dropdown">
+                    <a href="{% url 'headspace-index' %}">Headspace</a>
+                    <div class="dropdown-content">
+                        <a href="#">Guided Meditations</a>
+                        <a href="#">Healing Recipes</a>
+                        <a href="#">Gentle Workouts</a>
+                        <a href="#">Decluttering & Feng Shui</a>
+                        <a href="#">Mindfulness Retreats</a>
+                        <a href="#">Vision Boards / Downloads</a>
+                    </div>
+                </div>
+                
             </div>
             
-            <!-- Headspace Dropdown -->
-            <div class="dropdown">
-                <a href="{% url 'headspace-index' %}">Headspace</a>
-                <div class="dropdown-content">
-                <a href="#">Guided Meditations</a>
-                <a href="#">Healing Recipes</a>
-                <a href="#">Gentle Workouts</a>
-                <a href="#">Decluttering & Feng Shui</a>
-                <a href="#">Mindfulness Retreats</a>
-                <a href="#">Vision Boards / Downloads</a>
-                </div>
-            </div>
-
-            </div>
-
             <div class="navbar-right">
                 {% if user.is_authenticated %}
-                  <form id="logout-form" method="post" action="{% url 'logout' %}">
+                <form id="logout-form" method="post" action="{% url 'logout' %}">
                     {% csrf_token %}
                     <button type="submit" class="btn-outline">Log Out</button>
-                  </form>
+                </form>
                 {% else %}
-                  <a href="{% url 'login' %}" class="btn-outline">Log In</a>
-                  <a href="{% url 'signup' %}" class="btn-solid">Sign Up</a>
+                <a href="{% url 'login' %}" class="btn-outline">Log In</a>
+                <a href="{% url 'signup' %}" class="btn-solid">Sign Up</a>
+                <a href="{% url 'about' %}">About</a>
                 {% endif %}
             </div>
         </nav>

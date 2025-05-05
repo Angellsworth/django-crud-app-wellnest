@@ -2,14 +2,13 @@
 {% load static %}
 
 {% block head %}
-  <!-- <link rel="stylesheet" href="{% static 'css/habits/habit-index.css' %}"> -->
   <link rel="stylesheet" href="{% static 'css/moods/mood_index.css' %}">
 {% endblock %}
 
 {% block content %}
   <section class="page-header">
     <h1>Your daily emotional weather</h1>
-    <img src="{% static 'images/whiteNestHouse.svg' %}" alt="WellNest House Logo" class="tiny-logo">
+    <img src="{% static 'images/whiteNestHouse.svg' %}" alt="WellNest House Logo" class="tiny-logo" width="150px">
   </section>
 
   <section class="mood-groups">
@@ -42,17 +41,17 @@
       </section>
 
       <div class="range-buttons">
-        <a href="?range=7" class="{% if range == 7 %}active{% endif %}">7 Days</a>
-        <a href="?range=30" class="{% if range == 30 %}active{% endif %}">30 Days</a>
-        <a href="?range=90" class="{% if range == 90 %}active{% endif %}">90 Days</a>
-        <a href="?range=365" class="{% if range == 365 %}active{% endif %}">1 Year</a>
+        <button data-range="7" class="range-btn {% if range == 7 %}active{% endif %}">7 Days</button>
+        <button data-range="30" class="range-btn {% if range == 30 %}active{% endif %}">30 Days</button>
+        <button data-range="90" class="range-btn {% if range == 90 %}active{% endif %}">90 Days</button>
+        <button data-range="365" class="range-btn {% if range == 365 %}active{% endif %}">1 Year</button>
       </div>
     </fieldset>
   </section>
 {% endblock %}
 
 {% block script %}
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     const ctx = document.getElementById('moodTrendChart').getContext('2d');
 
@@ -106,5 +105,25 @@
         }
       }
     });
+    
+  document.querySelectorAll('.range-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const range = this.getAttribute('data-range');
+
+      fetch(`/api/mood-data/?range=${range}`)
+        .then(response => response.json())
+        .then(data => {
+          // Update chart labels and data
+          moodChart.data.labels = data.labels;
+          moodChart.data.datasets[0].data = data.scores;
+          moodChart.update();
+
+          // Update button styles
+          document.querySelectorAll('.range-btn').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+        });
+    });
+  });
+
   </script>
 {% endblock %}
