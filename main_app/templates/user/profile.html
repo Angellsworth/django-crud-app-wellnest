@@ -7,7 +7,7 @@
 
 {% block content %}
 <div class="profile-container">
-  <h1>Welcome back, {{ user.first_name|default:user.username }} 🌿</h1>
+  <h1>Welcome back, {{ user.first_name|default:user.username }} </h1>
   <p class="intro-line">Here’s your WellNest space for reflection, growth, and gentle progress.</p>
 
   <div class="dashboard-grid">
@@ -29,13 +29,10 @@
       <h2>Mood</h2>
       <p>See how you’re feeling over time</p>
     </a>
-
-    <div style="text-align: center; margin-top: 2rem;">
-        <a href="{% url 'delete_profile' %}" class="btn submit" style="background-color: #c0392b;">
-          Delete My Account
-        </a>
+    </div>
+    </div>
+      <div class="profile-actions-wrapper">
+        <a href="{% url 'edit_profile' %}" class="profile-button edit">Edit Profile</a>
+        <a href="{% url 'delete_profile' %}" class="profile-button delete">Delete My Account</a>
       </div>
-
-  </div>
-</div>
 {% endblock %}

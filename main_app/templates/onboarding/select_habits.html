@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/onboarding/onboarding.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="onboarding-container fade-slide">
+  <div class="progress-container">
+    <div class="progress-bar" style="width: {{ progress_percent }}%;"></div>
+    <span class="progress-label">{{ progress_percent }}%</span>
+  </div>
+
+  <p class="affirmation-text">“You’re doing better than you think.”</p>
+  <h1 class="onboarding-title">🧠 {{ category.name }} Habits</h1>
+  <p class="onboarding-subtitle">Pick 1–2 habits that speak to you.</p>
+
+  <form method="POST" class="onboarding-form">
+    {% csrf_token %}
+    <div class="habit-options">
+      {% for habit in habit_templates %}
+        <label class="habit-card">
+          <input type="checkbox" name="habits" value="{{ habit.id }}">
+          <span>{{ habit.title }}</span>
+        </label>
+      {% empty %}
+        <p>No habits available in this category.</p>
+      {% endfor %}
+    </div>
+
+    <div class="onboarding-buttons">
+      <button type="submit" class="btn submit">Next</button>
+      <a href="{% url 'profile' %}" class="btn skip">Skip Onboarding</a>
+    </div>
+  </form>
+
+  <script>
+    // JS to enforce max 2 checkboxes
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+        if (checked.length > 2) {
+          cb.checked = false;
+          alert('Please select no more than 2 habits.');
+        }
+      });
+    });
+  </script>
+</section>
+{% endblock %}

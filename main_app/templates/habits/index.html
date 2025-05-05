@@ -1,3 +1,4 @@
+<!-- main_app>templates>habits>index.html -->
 {% extends 'base.html' %}
 {% load static %}
 
@@ -14,25 +15,75 @@
 <section class="habit-groups">
   <fieldset class="habit-group">
     <legend class="habit-legend">Healthy Habits</legend>
-
+    <form style="display:none;">{% csrf_token %}</form>
     <div class="section-actions">
       <a href="{% url 'habit-create' %}" class="btn-solid small-btn">+ Add Habit</a>
     </div>
 
     <div class="card-container">
       {% for habit in habits %}
-          <a href="{% url 'habit-detail' habit.id %}" class="card">
-            <div class="card-content">
-              <h3 class="card-title">{{ habit.title }}</h3>
-              <p><strong>Frequency:</strong> {{ habit.frequency }}</p>
-              <p>{{ habit.description }}</p>
-              <p><small>Started on: {{ habit.created_at }}</small></p>
-            </div>
-          </a>
+      <div class="card habit-card {% if habit.has_checked_in_today %}checked{% endif %}" data-habit-id="{{ habit.id }}">
+        <div class="card-check">
+          <input 
+            type="checkbox" 
+            class="habit-check" 
+            id="habit-{{ habit.id }}"
+            {% if habit.has_checked_in_today %}checked{% endif %}
+          >
+        </div>
+        <div class="card-content">
+          <label for="habit-{{ habit.id }}">
+            <h3 class="card-title">{{ habit.title }}</h3>
+            <p><strong>Frequency:</strong> {{ habit.frequency }}</p>
+            <p>{{ habit.description }}</p>
+            <p><small>Started on: {{ habit.created_at }}</small></p>
+          </label>
+        
+          <div class="card-actions">
+            <a href="{% url 'habit-detail' habit.id %}" class="btn-outline small-btn">View</a>
+            <a href="{% url 'habit-edit' habit.id %}" class="btn-outline small-btn">Edit</a>
+            <a href="{% url 'habit-delete' habit.id %}" class="btn-danger small-btn">Delete</a>
+          </div>
+        </div>
+      </div>
       {% endfor %}
     </div>
   </fieldset>
-
-
 </section>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    console.log("💡 Inline habit check-in script loaded");
+
+    document.querySelectorAll('.habit-check').forEach(function (checkbox) {
+      checkbox.addEventListener('change', function () {
+        const card = this.closest('.habit-card');
+        const habitId = card.dataset.habitId;
+        const isChecked = this.checked;
+
+        fetch(`/habits/${habitId}/toggle-checkin/`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCSRFToken(),
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.checked_in) {
+              card.classList.add('checked');
+              card.style.opacity = 0.4;
+            } else {
+              card.classList.remove('checked');
+              card.style.opacity = 1;
+            }
+          })
+          .catch((error) => console.error('Error toggling check-in:', error));
+      });
+    });
+
+    function getCSRFToken() {
+      return document.querySelector('[name=csrfmiddlewaretoken]').value;
+    }
+  });
+</script>
 {% endblock %}

@@ -25,54 +25,56 @@
 
   <!-- Right column -->
   <section class="habit-log">
+    <h1 class="detail-header">Your Habit: {{ habit.title }}</h1>
     <div class="habit-log-box">
          
-      <div class="checkin-history">
-        {% if habit.habitcheckin_set.all %}
-          <h4>Check-in History</h4>
+      <!-- Always show the check-in button/form -->
+    <div class="checkin-history">
 
-          {% if form %}
-            <form method="POST" action="{% url 'add-checkin' habit.id %}" class="checkin-form">
-              {% csrf_token %}
-              {{ form.as_p }}
-              <button type="submit" class="checkin-submit-button">Log a Check-in</button>
-            </form>
-          {% else %}
-            <form method="GET" action="" class="checkin-form">
-              <button type="submit" name="show_form" value="true" class="checkin-submit-button">
-                Log a Check-in
-              </button>
-            </form>
-          {% endif %}
-      
-          <div class="checkin-carousel-container">
-            <div class="carousel-blur left-blur"></div>
-            <div class="carousel-blur right-blur"></div>
+      {% if form %}
+        <form method="POST" action="{% url 'add-checkin' habit.id %}" class="checkin-form">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="checkin-submit-button">Log a Check-in</button>
+        </form>
+      {% else %}
+        <form method="GET" action="" class="checkin-form">
+          <button type="submit" name="show_form" value="true" class="checkin-submit-button">
+            Log a Check-in
+          </button>
+        </form>
+      {% endif %}
 
-            <button class="carousel-arrow left" onclick="scrollCheckins(-1)">‹</button>
-      
-            <div class="checkin-carousel" id="checkinCarousel">
-              {% for checkin in habit.habitcheckin_set.all %}
-                <div class="checkin-card">
-                  <p><strong>{{ checkin.date }}</strong></p>
-                  {% if checkin.note %}
-                    <p>{{ checkin.note }}</p>
-                  {% else %}
-                    <p><em>No notes</em></p>
-                  {% endif %}
-                </div>
-              {% endfor %}
-            </div>
-      
-            <button class="carousel-arrow right" onclick="scrollCheckins(1)">›</button>
+      <!-- Then check if there are any check-ins -->
+      {% if habit.habitcheckin_set.all %}
+        <h4>Check-in History</h4>
+        
+        <div class="checkin-carousel-container">
+          <div class="carousel-blur left-blur"></div>
+          <div class="carousel-blur right-blur"></div>
+
+          <button class="carousel-arrow left" onclick="scrollCheckins(-1)">‹</button>
+
+          <div class="checkin-carousel" id="checkinCarousel">
+            {% for checkin in habit.habitcheckin_set.all %}
+              <div class="checkin-card">
+                <p><strong>{{ checkin.date }}</strong></p>
+                {% if checkin.note %}
+                  <p>{{ checkin.note }}</p>
+                {% else %}
+                  <p><em>No notes</em></p>
+                {% endif %}
+              </div>
+            {% endfor %}
           </div>
 
+          <button class="carousel-arrow right" onclick="scrollCheckins(1)">›</button>
+        </div>
+      {% else %}
+        <p>No check-ins yet.</p>
+      {% endif %}
 
-      
-        {% else %}
-          <p>No check-ins yet.</p>
-        {% endif %}
-      </div>
+    </div>
 
       <script>
         function scrollCheckins(direction) {

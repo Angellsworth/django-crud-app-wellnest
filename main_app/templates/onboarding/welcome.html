@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/onboarding/onboarding.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="onboarding-container onboarding-step">
+  <div class="progress-container">
+    <div class="progress-bar" style="width: 0%;"></div>
+  </div>
+
+  <div class="onboarding-header">
+    <h1 class="onboarding-title">🌿 Welcome to WellNest</h1>
+    <p class="onboarding-subtitle">
+      Let’s begin your journey toward a more centered and supported you.
+    </p>
+    <p class="onboarding-subtitle">
+      We’ll start with a few small steps, one area at a time.
+    </p>
+  </div>
+
+  <form method="POST" class="onboarding-form">
+    {% csrf_token %}
+    <div class="onboarding-buttons">
+      <button type="submit" class="btn submit">Start with Mind 🧠</button>
+      <a href="{% url 'profile' %}" class="btn skip">Skip Onboarding</a>
+    </div>
+  </form>
+</section>
+{% endblock %}
