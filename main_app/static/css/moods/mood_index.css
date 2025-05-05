@@ -104,6 +104,39 @@ body {
 }
 
 .mood-chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 800px;
+    padding: 0 1rem;
+}
 
-    width: 700px;
+.range-btn {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.range-btn {
+    padding: 0.5rem 1rem;
+    border: 1.5px solid var(--color-brand-primary);
+    color: var(--color-brand-primary);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.range-btn:hover {
+    background-color: var(--color-brand-primary);
+    color: white;
+}
+
+.range-btn.active {
+    background-color: var(--color-brand-primary);
+    color: white;
 }
