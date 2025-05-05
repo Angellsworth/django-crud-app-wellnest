@@ -21,7 +21,6 @@
     margin: 0.5rem 0;
 }
 
-
 /* ---------- Habit Group Sections ---------- */
 .habit-groups {
     display: grid;
@@ -30,11 +29,13 @@
 }
 
 .habit-group {
-    border: 2px solid var(--color-brand-primary);
+    border: 2px solid var(--color-accent-optional);
     border-radius: 12px;
     padding: 2rem 1rem 1.5rem;
     margin-bottom: 2.5rem;
+    margin: 0 auto 2.5rem;
     position: relative;
+    width: 75%;
 }
 
 .habit-legend {
@@ -43,6 +44,12 @@
     padding: 0 1rem;
     color: var(--color-brand-primary);
     margin-left: 1rem;
+}
+
+.section-actions {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0.5rem 1rem;
 }
 
 /* ---------- Card Layout ---------- */
@@ -61,7 +68,7 @@
 .card {
     flex: 0 0 280px;
     background-color: #ffffffcc;
-    border-left: 6px solid var(--color-brand-primary);
+    border-left: 6px solid var(--color-accent-optional);
     border-radius: 12px;
     padding: 1rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
@@ -86,8 +93,80 @@
     color: var(--color-text-primary);
 }
 
-.section-actions {
+/* ---------- Habit Card ---------- */
+.habit-card {
     display: flex;
-    justify-content: flex-start;
-    padding: 0.5rem 1rem;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.habit-card.checked {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.card-check {
+    padding-top: 0.5rem;
+}
+
+.habit-check {
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: var(--color-brand-primary);
+    cursor: pointer;
+}
+
+/* ---------- Card Content & Actions ---------- */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-actions {
+    margin-top: auto;
+    display: none;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-top: 1rem;
+}
+
+.habit-card:hover .card-actions {
+    display: flex;
+}
+
+/* ---------- Buttons ---------- */
+.card-actions a {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    flex: 1;
+    text-align: center;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline {
+    border: 1.5px solid var(--color-brand-primary);
+    background-color: white;
+    color: var(--color-brand-primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-brand-primary);
+    color: white;
+}
+
+.btn-danger {
+    border: 1.5px solid #c0392b;
+    background-color: white;
+    color: #c0392b;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+    color: white;
 }

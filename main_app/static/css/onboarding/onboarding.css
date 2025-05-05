@@ -1,0 +1,224 @@
+/* ───── Container & Layout ───── */
+.onboarding-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.onboarding-header {
+    margin-bottom: 2rem;
+}
+
+.onboarding-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.onboarding-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.onboarding-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.onboarding-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+/* ───── Card Styles ───── */
+.onboarding-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+}
+
+.onboarding-card input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.onboarding-card span {
+    pointer-events: none;
+    /* Ensures label handles the click */
+}
+
+/* Checked style */
+.onboarding-card input[type="checkbox"]:checked+span {
+    background-color: #457D58;
+    color: white;
+    border-color: #457D58;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+}
+
+/* ───── Buttons ───── */
+.onboarding-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.onboarding-buttons .btn {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn.submit {
+    background-color: #457d58;
+    color: white;
+}
+
+.btn.submit:hover {
+    background-color: #39684a;
+}
+
+.btn.skip {
+    background-color: transparent;
+    color: #457d58;
+    border: 2px solid #457d58;
+}
+
+.btn.skip:hover {
+    background-color: #e6f3ec;
+}
+
+/* ───── Progress Bar ───── */
+.progress-container {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #457D58;
+    transition: width 0.4s ease;
+}
+
+.progress-label {
+    position: absolute;
+    top: -1.6rem;
+    right: 0;
+    font-size: 0.85rem;
+    color: #444;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+/* ───── Accessibility ───── */
+.visually-hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+.error-msg {
+    color: #b80000;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.habit-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.habit-card {
+    position: relative;
+    display: block;
+    padding: 1.25rem;
+    border: 2px solid #ccc;
+    border-radius: 1rem;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+    font-size: 1rem;
+}
+
+.habit-card:hover {
+    border-color: #457D58;
+    background-color: #eaf6f1;
+}
+
+.habit-card input[type="checkbox"] {
+    display: none;
+}
+
+.habit-card input[type="checkbox"]:checked+span {
+    background-color: #457D58;
+    color: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+/* Optional visual indicator (like a subtle checkmark or border glow) */
+.habit-card input[type="checkbox"]:checked+span::after {
+    content: "✓";
+    font-size: 1.2rem;
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+/* Smooth progress bar */
+.progress-bar {
+    height: 100%;
+    background-color: #457D58;
+    border-radius: 5px;
+    transition: width 0.4s ease-in-out;
+}
+
+.affirmation-text {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* .progress-bar.step-1 {
+    width: 33%;
+}
+
+.progress-bar.step-2 {
+    width: 66%;
+}
+
+.progress-bar.step-3 {
+    width: 100%;
+} */
