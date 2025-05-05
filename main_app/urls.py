@@ -1,5 +1,8 @@
+#main_app>urls.py
 from django.urls import path
 from . import views
+
+
 
 urlpatterns = [
     # ──────────────── Static Pages ────────────────
@@ -39,4 +42,11 @@ urlpatterns = [
     path('resources/find-therapist/', views.find_therapist, name='find-therapist'),
     path('resources/headspace/', views.headspace_index, name='headspace-index'),
     path('resources/headspace/meditations/', views.headspace_meditations, name='headspace-meditations'),
+
+    # ──────────────── Onboarding Pages ────────────────
+    path('onboarding/', views.onboarding_start, name='onboarding-start'),
+    path('onboarding/habits/', views.select_habits, name='onboarding-habits'),
+    path('onboarding/mood/', views.onboarding_mood, name='onboarding-mood'),
+
+    path('habits/<int:habit_id>/toggle-checkin/', views.toggle_checkin, name='toggle-checkin'),
 ]

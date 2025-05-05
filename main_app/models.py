@@ -2,6 +2,7 @@
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 # ──────────────── Mood Options ────────────────
 MOOD_CHOICES = [
@@ -70,3 +71,44 @@ class JournalEntry(models.Model):
 
     class Meta:
         ordering = ['-date']
+
+# ──────────────── User Profile Model ────────────────
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    has_completed_onboarding = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.user.username}'s Profile"
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+# ──────────────── Habit Onboarding Templates ────────────────
+
+class HabitCategory(models.Model):
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+
+class HabitTemplate(models.Model):
+    category = models.ForeignKey(HabitCategory, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    frequency = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"{self.title} ({self.category.name})"
