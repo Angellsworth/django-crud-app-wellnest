@@ -1,0 +1,60 @@
+.resource-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 4rem 2rem;
+    background-color: #fffdf9;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(117, 70, 104, 0.08);
+    text-align: left;
+}
+
+.resource-container h1 {
+    font-family: 'Brown Sugar', cursive;
+    font-size: 2.6rem;
+    color: var(--color-accent-optional);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.resource-container .intro {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.resource-section {
+    margin-bottom: 2.5rem;
+}
+
+.resource-section h2 {
+    color: var(--color-brand-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1.5px solid var(--color-brand-secondary);
+    padding-bottom: 0.5rem;
+}
+
+.resource-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.resource-section li {
+    font-size: 1rem;
+    color: var(--color-text-primary);
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.resource-section li a {
+    color: var(--color-accent-optional);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.resource-section li a:hover {
+    border-color: var(--color-accent-optional);
+}

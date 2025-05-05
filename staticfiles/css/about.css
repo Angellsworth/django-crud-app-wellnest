@@ -1,0 +1,125 @@
+/* ==========================================================================
+📖 ABOUT PAGE STYLES — Grid Layout Like Screenshot
+========================================================================== */
+
+.about-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "block1 block2"
+        "block3 block3"
+        "block4 block4";
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(6px);
+}
+
+/* Block Grid Mapping */
+.block-1 {
+    grid-area: block1;
+}
+
+.block-2 {
+    grid-area: block2;
+}
+
+.block-3 {
+    grid-area: block3;
+}
+
+.block-4 {
+    grid-area: block4;
+}
+
+/* General Section Styling */
+.about-section {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.about-title {
+    font-family: 'Brown Sugar', cursive;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--color-brand-primary);
+    margin-bottom: 0.5rem;
+}
+
+.about-divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent-optional);
+    border: none;
+    margin: 1rem auto 2rem auto;
+}
+
+.tagline {
+    font-family: 'Style Script', cursive;
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.about-section h2 {
+    font-size: 1.8rem;
+    color: var(--color-accent-optional);
+    margin-bottom: 1rem;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: var(--color-text-primary);
+}
+
+/* Feature + Book List Styling */
+.about-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-list li {
+    background: var(--color-brand-secondary);
+    margin-bottom: 0.75rem;
+    padding: 1rem;
+    border-radius: 8px;
+    color: var(--color-text-primary);
+    font-weight: 500;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.about-list a {
+    color: var(--color-accent-optional);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.about-list a:hover {
+    text-decoration: underline;
+}
+
+/* Founder Note Styling */
+.founder-note {
+    font-style: italic;
+    background: linear-gradient(90deg, var(--color-background) 0%, var(--color-brand-secondary) 100%);
+    border-left: 4px solid var(--color-accent-optional);
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+    .about-page {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "block1"
+            "block2"
+            "block3"
+            "block4";
+    }
+}

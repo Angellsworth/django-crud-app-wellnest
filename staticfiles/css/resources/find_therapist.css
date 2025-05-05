@@ -1,0 +1,49 @@
+.find-therapist-container {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 2rem;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 1rem;
+    border: 2px solid var(--color-accent-optional);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.page-title {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 300;
+    font-size: 2.5rem;
+    color: var(--color-accent-optional);
+    margin-bottom: 1rem;
+}
+
+.support-text {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+}
+
+.btn-solid {
+    background-color: var(--color-brand-primary);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-solid:hover {
+    background-color: var(--color-accent-optional);
+}
+
+.therapist-confirmation p {
+    margin-top: 1.5rem;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    color: var(--color-text-primary);
+}

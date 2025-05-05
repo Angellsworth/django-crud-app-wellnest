@@ -1,0 +1,68 @@
+/* moods/mood_delete.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600&display=swap');
+
+.delete-container {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    text-align: center;
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.65);
+    border: 2px solid var(--color-brand-primary);
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.delete-container h1 {
+    font-size: 1.75rem;
+    color: var(--color-brand-primary);
+    margin-bottom: 1rem;
+}
+
+.delete-container p {
+    color: var(--color-text-primary);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.delete-container form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Buttons */
+.btn {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.delete-btn {
+    border: 1.5px solid #c0392b;
+    color: #c0392b;
+    background: transparent;
+}
+
+.delete-btn:hover {
+    background-color: #c03a2bab;
+    color: white;
+}
+
+.cancel-btn {
+    border: 1.5px solid var(--color-accent-optional);
+    color: var(--color-accent-optional);
+    background: transparent;
+}
+
+.cancel-btn:hover {
+    background-color: #754668ab;
+    color: white;
+}
