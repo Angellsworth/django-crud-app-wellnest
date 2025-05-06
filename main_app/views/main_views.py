@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 from datetime import date
 from ..forms import CustomUserCreationForm, EditProfileForm
-from ..models import Profile, Habit, HabitCheckIn
+from ..models import Profile, Habit, HabitCheckIn, SavedRecipe
 
 # ──────────────── STATIC PAGES ────────────────
 
@@ -48,10 +48,13 @@ def profile(request):
     checkins = HabitCheckIn.objects.filter(habit__in=habits, date=today)
     checked_ids = [checkin.habit.id for checkin in checkins]
 
+    saved_recipes = SavedRecipe.objects.filter(user=request.user)
+
     return render(request, 'user/profile.html', {
         'habits': habits,
         'checked_ids': checked_ids,
-        'today': today
+        'today': today,
+        'saved_recipes': saved_recipes,
     })
 
 @login_required
