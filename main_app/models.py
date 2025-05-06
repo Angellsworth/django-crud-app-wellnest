@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 
+
 # ──────────────── Mood Options ────────────────
 MOOD_CHOICES = [
     ('ecstatic', '😄 Ecstatic'),
@@ -112,3 +113,20 @@ class HabitTemplate(models.Model):
 
     def __str__(self):
         return f"{self.title} ({self.category.name})"
+    
+
+
+class SavedRecipe(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    image = models.CharField(max_length=255)
+    link = models.URLField()
+
+    def __str__(self):
+        return f"{self.title} saved by {self.user.username}"
+
+class SavedMeditation(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    video_id = models.CharField(max_length=100)
+    url = models.URLField()

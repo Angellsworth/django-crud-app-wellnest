@@ -33,6 +33,29 @@
     </div>
       <div class="profile-actions-wrapper">
         <a href="{% url 'edit_profile' %}" class="profile-button edit">Edit Profile</a>
-        <a href="{% url 'delete_profile' %}" class="profile-button delete">Delete My Account</a>
+        <a href="{% url 'delete_profile' %}" class="profile-button delete">Delete Profile</a>
       </div>
+      <section class="saved-recipes">
+        <h2>Saved Recipes</h2>
+        {% if saved_recipes %}
+          <div class="recipe-grid">
+            {% for recipe in saved_recipes %}
+              <div class="recipe-card-wrapper">
+                <a href="{{ recipe.link }}" target="_blank" class="recipe-card">
+                  <img src="{% static recipe.image %}" alt="{{ recipe.title }}">
+                  <h3>{{ recipe.title }}</h3>
+                </a>
+      
+                <!-- Delete Button -->
+                <form method="POST" action="{% url 'delete-recipe' recipe.id %}">
+                  {% csrf_token %}
+                  <button type="submit" class="btn delete-btn">Delete</button>
+                </form>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="no-saved-msg">You haven’t saved any recipes yet.</p>
+        {% endif %}
+      </section>
 {% endblock %}

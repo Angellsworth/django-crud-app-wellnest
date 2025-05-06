@@ -1,7 +1,8 @@
 #main_app>urls.py
 from django.urls import path
 from . import views
-from .views import mood_views
+from .views import resource_views, mood_views
+
 
 
 urlpatterns = [
@@ -42,12 +43,16 @@ urlpatterns = [
     path('resources/', views.resource_index, name='resource-index'),
     path('resources/find-therapist/', views.find_therapist, name='find-therapist'),
     path('resources/headspace/', views.headspace_index, name='headspace-index'),
-    path('resources/headspace/meditations/', views.headspace_meditations, name='headspace-meditations'),
+    path('resources/headspace/recipes/', resource_views.headspace_recipes, name='headspace-recipes'),
+    path('resources/headspace/meditations/', resource_views.headspace_meditations, name='headspace-meditations'),
+    path('save-recipe/', resource_views.save_recipe, name='save-recipe'),
+    path('delete-recipe/<int:recipe_id>/', resource_views.delete_saved_recipe, name='delete-recipe'),
 
     # ──────────────── Onboarding Pages ────────────────
     path('onboarding/', views.onboarding_start, name='onboarding-start'),
     path('onboarding/habits/', views.select_habits, name='onboarding-habits'),
     path('onboarding/mood/', views.onboarding_mood, name='onboarding-mood'),
+
 
     path('habits/<int:habit_id>/toggle-checkin/', views.toggle_checkin, name='toggle-checkin'),
 ]
