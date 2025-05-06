@@ -22,7 +22,7 @@ It’s a quiet, empowering space to track what matters most: how you’re feelin
 [Live on Heroku](https://wellnest-9fb3514a6ea2.herokuapp.com/)
 
 ### 📌 Planning Materials
-[Trello Board](https://trello.com/b/YOUR-TRELLO-LINK-HERE)
+[Trello Board](https://trello.com/b/7yrNJep6/wellnest-project-4-django-crud)
 
 ---
 
@@ -63,7 +63,7 @@ It’s a quiet, empowering space to track what matters most: how you’re feelin
 
 ## 🙌 Attributions
 
-- Mood icons and illustrations by [Undraw](https://undraw.co/)  
+- Custom illustrations designed in collaboration with ChatGPT (visual vibes)  
 - Brown Sugar font by [HansCo](https://www.dafont.com/brown-sugar.font)  
 - Inspiration from [Mel Robbins](https://melrobbins.com/), [Brené Brown](https://brenebrown.com/), and [Glennon Doyle](https://momastery.com/blog/)
 
