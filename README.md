@@ -1,120 +1,82 @@
-⸻
-
-
-
 # 🌿 WellNest
 
 > *Your gentle space to begin again — as many times as you need.*
 
-WellNest is a personal wellness and habit journal designed to help you reconnect with yourself — one habit, one mood, one reflection at a time.
+---
 
-It’s a quiet, empowering space to track what matters most: how you’re feeling, what you’re building, and who you’re becoming.
+![WellNest Landing Page](assets/landingPage.png)
 
 ---
 
-## ✨ Features
+## 📘 About the App
 
-- 🧠 **Daily Habits Tracker** — Create, edit, and check off habits that support your wellness goals  
-- ✍️ **Reflection Journals** — Write and revisit personal reflections in a clean, focused interface  
-- 🎭 **Mood Logging** — Select moods visually and view patterns over time with dynamic charts  
-- 🧘‍♀️ **Onboarding Flow** — Gently guided setup to customize your journey (Mind, Body, Soul, Family)  
-- 📈 **Visual Mood Insights** — Track emotional trends over days, weeks, months, or seasons  
-- 🎧 **Resource Library** — Curated podcasts, meditations, books, therapist finders, and healing guides  
-- 🌲 **Peaceful UI** — Forest-inspired, calm design with gentle animations and daily encouragements  
-- 🔒 **User Accounts** — Authenticated login with secure, user-specific data  
-- ⚙️ **AJAX Habit Check-Ins** — Smooth check-off experience without page reloads  
+**WellNest** is a personal wellness and habit journal designed to help users reconnect with themselves — one habit, one mood, one reflection at a time.
 
----
-
-## 🛠️ Built With
-
-- Django (Python)
-- PostgreSQL
-- Django Templates (HTML5 + CSS3)
-- JavaScript (AJAX for live habit updates)
-- Hosted on [Heroku](https://wellnest-9fb3514a6ea2.herokuapp.com/)
+It’s a quiet, empowering space to track what matters most: how you’re feeling, what you’re building, and who you’re becoming. I built WellNest as a way to merge mental wellness and software — a place to hold small, gentle routines that support big growth. This app is deeply inspired by my own journey through healing, habit stacking, and tech bootcamping all at once.
 
 ---
 
 ## 🚀 Getting Started
 
-### 📦 Prerequisites
+### 🔗 Deployed App
+[Live on Heroku](https://wellnest-9fb3514a6ea2.herokuapp.com/)
 
-- Python 3.11  
-- PostgreSQL  
-- Git  
+### 📌 Planning Materials
+[Trello Board](https://trello.com/b/YOUR-TRELLO-LINK-HERE)
 
-### 🧪 Installation
+---
 
-```bash
-git clone https://github.com/your-username/wellnest.git
-cd wellnest
+## ✨ Features
 
-python3 -m venv env
-source env/bin/activate
+- 🧠 **Track daily habits** — Create, update, check off, and delete habits  
+- ✍️ **Write reflections** — Private journaling with optional prompts  
+- 🎭 **Log moods** — Visual mood tracker with trend charts  
+- 🧘‍♀️ **Guided onboarding** — Mind/Body/Soul setup with affirming messages  
+- 🎧 **Self-care resources** — Podcast links, healing recipes, therapist locator  
+- ⚙️ **User authentication** — Secure login and user-specific data  
+- 🔁 **Live check-offs** — AJAX-based habit completion without page reloads  
+- 📊 **Mood insights** — Dynamic charts for 1, 3, 6, and 12-month trends
 
-pip install -r requirements.txt
+---
 
-# Set up your .env file with your secret key and DB credentials
+## 🛠️ Technologies Used
 
-python3 manage.py migrate
-python3 manage.py runserver
+- Python / Django
+- PostgreSQL
+- HTML5 / CSS3 / Django Templates
+- JavaScript (AJAX)
+- Hosted on Heroku
+- Visual assets in Figma + Canva
 
-Then open your browser and visit:
+---
 
-http://localhost:8000
+## 🎯 Next Steps
 
+- [ ] AI-powered reflection suggestions based on mood and journal entries  
+- [ ] Responsive mobile-first redesign  
+- [ ] User badges and habit streak tracking  
+- [ ] Calendar view of mood & habit history  
+- [ ] Custom user themes (dark mode, forest, ocean, etc.)  
+- [ ] Notification nudges for incomplete habits
 
+---
 
-⸻
+## 🙌 Attributions
 
-📸 Screenshots
+- Mood icons and illustrations by [Undraw](https://undraw.co/)  
+- Brown Sugar font by [HansCo](https://www.dafont.com/brown-sugar.font)  
+- Inspiration from [Mel Robbins](https://melrobbins.com/), [Brené Brown](https://brenebrown.com/), and [Glennon Doyle](https://momastery.com/blog/)
 
-Home Page	Habits Tracker	Mood Chart	Reflection Entry
-			
+---
 
+## 👩‍💻 Creator
 
+**Angela Ellsworth**  
+Barber turned full-stack developer. Wellness nerd. Habit hacker.  
+Mom, maker, writer, rebuilder.  
 
-⸻
+> “Flowers don’t chase bees. They bloom and trust the right things will come.” 🌸
 
-🧭 Roadmap
-	•	Full CRUD for habits, reflections, and moods
-	•	User authentication and onboarding
-	•	Daily dashboard with habit checklist
-	•	Mood chart visualization (1, 3, 6, 12 months)
-	•	AI-powered guided reflections
-	•	Mobile-first responsive design
-	•	Journal prompt generator
-	•	Calendar-style habit and mood history view
-	•	Profile badges and habit streaks
+[LinkedIn](https://www.linkedin.com/in/angela-ellsworth/) | [GitHub](https://github.com/Angellsworth)
 
-⸻
-
-🧾 License
-
-MIT License — see LICENSE.txt for details.
-
-⸻
-
-👩‍💻 Creator
-
-Angela Ellsworth
-Barber turned full-stack developer. Wellness nerd. Habit hacker.
-Mom, maker, writer, rebuilder.
-
-“Flowers don’t chase bees. They bloom and trust the right things will come.” 🌸
-
-LinkedIn | GitHub | Portfolio
-
-⸻
-
-
-
-Let me know if you'd like:
-
-- Me to help you **drop in actual screenshot links**
-- A `requirements.txt` template
-- A shorter version for job apps
-- Or… a **README version with paw prints, glitter fonts, or manifestos** 😄
-
-Want a version with collapsible `<details>` sections or badges at the top too?
+---
