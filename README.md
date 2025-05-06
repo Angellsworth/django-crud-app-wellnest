@@ -1,9 +1,3 @@
-Absolutely. Here’s a simple, soft, and clean version of your README — still warm and welcoming, but without the extras that might feel too loud or busy:
-
-⸻
-
-
-
 # 🌿 WellNest
 
 *Your gentle space to begin again — as many times as you need.*
