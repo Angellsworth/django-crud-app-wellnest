@@ -10,8 +10,14 @@
 
 .auth-container h2 {
     color: var(--color-brand-primary);
+    font-weight: 200;
     font-size: 2rem;
     margin-bottom: 1.5rem;
+}
+
+.auth-container span {
+    font-family: 'Brown Sugar', cursive;
+    font-weight: 400;
 }
 
 .form-group {

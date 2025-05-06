@@ -41,10 +41,14 @@ main {
 }
 
 .home-intro h1 {
-    font-family: 'Brown Sugar', sans-serif;
+    font-family: 'Style Script', cursive;
     font-size: 2.5rem;
     color: var(--color-brand-primary);
     margin-bottom: 1rem;
+}
+
+.home-intro span {
+    font-family: 'Brown Sugar', sans-serif;
 }
 
 .home-intro .intro-text {

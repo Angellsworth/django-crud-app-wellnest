@@ -8,7 +8,6 @@
     font-style: normal;
 }
 
-/* Font Usage */
 body,
 p,
 a,
@@ -26,16 +25,13 @@ h3 {
     font-weight: 600;
 }
 
-/* Special Titles */
 .site-title,
 h1.welcome-title,
-/* Add a class if needed */
 .profile-container h1,
 .home-intro h1 {
     font-family: 'Brown Sugar', cursive;
 }
 
-/* Optional cursive touches */
 .subtext,
 .quote,
 .intro-line {
@@ -53,6 +49,22 @@ h1.welcome-title,
 }
 
 /* ---------- Base Body Styling ---------- */
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.layout-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
 body {
     font-family: 'Be Vietnam Pro', Arial, sans-serif;
     background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
@@ -60,7 +72,8 @@ body {
     background-size: cover;
     color: var(--color-text-primary);
     line-height: 1.6;
-    min-height: 100vh;
+    /* min-height: 300vh; */
+    height: 800px;
     display: flex;
     flex-direction: column;
 }
@@ -229,5 +242,48 @@ footer {
     color: var(--color-background);
     text-align: center;
     padding: 1rem;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 0.9rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    margin-top: auto;
+}
+
+.footer-link {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--color-accent-optional);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 100;
+}
+
+footer span {
+    font-family: 'Brown Sugar', cursive;
+    font-weight: 400;
+}
+
+.back-btn {
+    all: unset;
+    display: inline-block;
+    background-color: var(--color-accent-optional);
+    color: white;
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: transparent;
+    border: 1.5px solid var(--color-accent-optional);
+    color: var(--color-accent-optional);
+    transform: translateY(-1px);
 }
