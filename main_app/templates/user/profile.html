@@ -7,7 +7,7 @@
 
 {% block content %}
 <div class="profile-container">
-  <h1>Welcome back, {{ user.first_name|default:user.username }} </h1>
+  <h1>Welcome back,<span> {{ user.first_name|default:user.username }} </span>  </h1>
   <p class="intro-line">Here’s your WellNest space for reflection, growth, and gentle progress.</p>
 
   <div class="dashboard-grid">

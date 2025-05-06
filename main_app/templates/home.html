@@ -1,3 +1,4 @@
+<!-- main_app>templates>home.html -->
 {% extends 'base.html' %}
 {% load static %}
 
@@ -12,7 +13,9 @@
 </section>
 
 <section class="home-intro">
-  <h1> Welcome to WellNest </h1>
+
+  <h1> Welcome to <span>WellNest</span></h1>
+
   <p class="intro-text">
     WellNest is your soft place to land.
     <br>
@@ -23,17 +26,6 @@
 
       <a href="{% url 'signup' %}" class="btn-start">Start Your Journey</a>
 
-      {% if not user.is_authenticated %}
-      <section>
-        <form action="{% url 'home' %}" method="post" class="login">
-          <h1>Login</h1>
-          {% csrf_token %}
-          {{ form.as_p }}
-          <input type="hidden" name="next" value="{{ next }}">
-          <button type="submit" class="btn submit">Login</button>
-        </form>
-      </section>
-  {% endif %}
-    </section>
+</section>
 
 {% endblock %}
