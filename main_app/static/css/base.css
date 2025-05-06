@@ -248,6 +248,17 @@ footer {
     margin-top: auto;
 }
 
+footer a {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--color-accent-optional);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 100;
+}
+
 .footer-link {
     display: block;
     margin-top: 0.5rem;
