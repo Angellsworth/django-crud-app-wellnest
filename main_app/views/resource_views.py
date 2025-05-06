@@ -179,5 +179,19 @@ def delete_saved_recipe(request, recipe_id):
     recipe.delete()
     return redirect('profile')
 
+from django.shortcuts import render
+
+def gentle_workouts(request):
+    return render(request, 'resources/gentle_workouts.html')
+
+def decluttering_fengshui(request):
+    return render(request, 'resources/decluttering_fengshui.html')
+
+def mindfulness_retreats(request):
+    return render(request, 'resources/mindfulness_retreats.html')
+
+def vision_boards(request):
+    return render(request, 'resources/vision_boards.html')
+
 
 

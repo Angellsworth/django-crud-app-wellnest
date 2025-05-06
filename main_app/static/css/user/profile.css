@@ -99,6 +99,26 @@
 }
 
 /* ───── Saved Recipes Section ───── */
+.add-recipe-btn {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background-color: var(--color-brand-primary);
+    color: #fff;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 1.5rem;
+}
+
+.add-recipe-btn:hover {
+    background-color: var(--color-brand-secondary);
+    transform: translateY(-2px);
+}
+
 .saved-recipes {
     margin: 4rem auto;
     padding: 3rem 2rem;

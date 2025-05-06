@@ -37,6 +37,7 @@
       </div>
       <section class="saved-recipes">
         <h2>Saved Recipes</h2>
+        <a href="{% url 'headspace-recipes' %}" class="btn add-recipe-btn">Add a Recipe</a>
         {% if saved_recipes %}
           <div class="recipe-grid">
             {% for recipe in saved_recipes %}

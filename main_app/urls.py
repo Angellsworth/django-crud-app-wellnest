@@ -50,6 +50,10 @@ urlpatterns = [
     path('resources/headspace/meditations/', resource_views.headspace_meditations, name='headspace-meditations'),
     path('save-recipe/', resource_views.save_recipe, name='save-recipe'),
     path('delete-recipe/<int:recipe_id>/', resource_views.delete_saved_recipe, name='delete-recipe'),
+    path('resources/headspace/workouts/', resource_views.gentle_workouts, name='gentle-workouts'),
+    path('resources/headspace/decluttering/', resource_views.decluttering_fengshui, name='decluttering'),
+    path('resources/headspace/retreats/', resource_views.mindfulness_retreats, name='mindfulness-retreats'),
+    path('resources/headspace/vision/', resource_views.vision_boards, name='vision-boards'),
 
     # ──────────────── Onboarding Pages ────────────────
     path('onboarding/welcome/', onboarding_views.onboarding_welcome, name='onboarding-welcome'),
