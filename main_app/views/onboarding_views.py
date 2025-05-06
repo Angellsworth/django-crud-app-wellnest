@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from ..models import HabitCategory, HabitTemplate, Habit, Profile
+import logging
+logger = logging.getLogger(__name__)
 
 # ──────────────── ONBOARDING STEP 1: Start with Mind Category ────────────────
 @login_required
@@ -48,7 +50,9 @@ def select_habits(request):
 
     # Current category
     current_slug = category_order[index]
-    current_category = HabitCategory.objects.get(slug=current_slug)
+    current_category = HabitCategory.objects.filter(slug=current_slug).first()
+    if not current_category:
+        return render(request, 'onboarding/missing_category.html', {'slug': current_slug})
     habit_templates = HabitTemplate.objects.filter(category=current_category)
 
     if request.method == 'POST':
