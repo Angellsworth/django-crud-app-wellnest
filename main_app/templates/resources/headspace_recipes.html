@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/resources/headspace_recipes.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="headspace-section">
+  <h1>Healing Recipes</h1>
+  <p>Wholesome, calming recipes to nourish your body and soothe your nervous system. Click any image to learn more.</p>
+  {% if messages %}
+    <div id="flash-messages" class="messages">
+        {% for message in messages %}
+        <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+  {% for section in sections %}
+  <div class="recipe-section">
+    <h2>{{ section }}</h2>
+    <div class="recipe-grid">
+      {% for recipe in recipes %}
+        {% if recipe.section == section %}
+          <div class="recipe-card-wrapper">
+            <a href="{{ recipe.link }}" target="_blank" class="recipe-card">
+              <img src="{% static recipe.image %}" alt="{{ recipe.title }}">
+              <h3>{{ recipe.title }}</h3>
+            </a>
+            <form method="POST" action="{% url 'save-recipe' %}">
+              {% csrf_token %}
+              <input type="hidden" name="title" value="{{ recipe.title }}">
+              <input type="hidden" name="image" value="{{ recipe.image }}">
+              <input type="hidden" name="link" value="{{ recipe.link }}">
+              <button type="submit" class="btn save-btn">Save</button>
+            </form>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}
+</div>
+<script>
+    // Automatically fade out flash messages after 5 seconds
+    setTimeout(() => {
+      const flash = document.getElementById('flash-messages');
+      if (flash) {
+        flash.style.transition = 'opacity 0.5s ease';
+        flash.style.opacity = '0';
+        setTimeout(() => flash.remove(), 500); // remove after fade
+      }
+    }, 5000);
+  </script>
+{% endblock %}

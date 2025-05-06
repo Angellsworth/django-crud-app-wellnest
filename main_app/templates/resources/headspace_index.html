@@ -6,45 +6,44 @@
 {% endblock %}
 
 {% block content %}
-<!-- <body style="background: pink;"></body> -->
 <div class="headspace-container">
   <h1>Welcome to Your Headspace</h1>
   <p>This section offers tools for grounding, healing, and daily restoration. Explore mindfulness prompts, decluttering guides, and soulful rituals.</p>
 
   <div class="headspace-grid">
-    
+
     <a href="{% url 'headspace-meditations' %}" class="headspace-card">
-      🧘‍♀️
+      <img src="{% static 'images/meditations.png' %}" alt="Guided Meditations">
       <h2>Guided Meditations</h2>
       <p>Short practices to center your thoughts, slow your breathing, and re-enter your body.</p>
     </a>
 
-    <a href="#" class="headspace-card">
-      🥣
+    <a href="{% url 'headspace-recipes' %}" class="headspace-card">
+      <img src="{% static 'images/recipes.png' %}" alt="Healing Recipes">
       <h2>Healing Recipes</h2>
       <p>Warm, nourishing meals designed to calm the nervous system and feed your soul.</p>
     </a>
 
     <a href="#" class="headspace-card">
-      🧘‍♂️
+      <img src="{% static 'images/workouts.png' %}" alt="Gentle Workouts">
       <h2>Gentle Workouts</h2>
       <p>Stretching, yoga flows, and low-impact movement to bring ease back into your body.</p>
     </a>
 
     <a href="#" class="headspace-card">
-      🧹
+      <img src="{% static 'images/decluttering.png' %}" alt="Decluttering and Feng Shui">
       <h2>Decluttering & Feng Shui</h2>
       <p>Simple rituals to clear your space and create emotional clarity through your environment.</p>
     </a>
 
     <a href="#" class="headspace-card">
-      🌲
+      <img src="{% static 'images/retreats.png' %}" alt="Mindfulness Retreats">
       <h2>Mindfulness Retreats</h2>
       <p>Explore at-home and real-world options for stepping away, resting, and resetting.</p>
     </a>
 
     <a href="#" class="headspace-card">
-      🎯
+      <img src="{% static 'images/visionBoard.png' %}" alt="Vision Boards and Downloads">
       <h2>Vision Boards / Downloads</h2>
       <p>Printable prompts, journal cards, and goal-setting templates to inspire your next chapter.</p>
     </a>
