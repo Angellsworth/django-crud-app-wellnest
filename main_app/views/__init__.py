@@ -3,6 +3,7 @@ from .main_views import (
     home,
     about,
     signup,
+    login_view,
     profile,
     edit_profile,
     delete_profile,

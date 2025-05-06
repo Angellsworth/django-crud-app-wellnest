@@ -40,6 +40,24 @@ def signup(request):
         'error_message': error_message
     })
 
+def login_view(request):
+    error_message = ''
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('profile')
+        else:
+            error_message = 'Invalid username or password.'
+    else:
+        form = AuthenticationForm()
+
+    return render(request, 'registration/login.html', {
+        'form': form,
+        'error_message': error_message
+    })
+
 
 @login_required
 def profile(request):

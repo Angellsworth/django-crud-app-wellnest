@@ -1,7 +1,8 @@
 #main_app>urls.py
 from django.urls import path
 from . import views
-from .views import resource_views, mood_views
+from .views import login_view, resource_views, mood_views, onboarding_views
+
 
 
 
@@ -15,6 +16,8 @@ urlpatterns = [
     path('profile/edit/', views.edit_profile, name='edit_profile'),
     path('profile/delete/', views.delete_profile, name='delete_profile'),
     path('accounts/signup/', views.signup, name='signup'),
+    path('accounts/login/', views.login_view, name='login'),
+    path('accounts/login/', login_view, name='login'),
 
     # ──────────────── Habit URLs ────────────────
     path('habits/', views.habit_index, name='habit-index'),
@@ -49,6 +52,7 @@ urlpatterns = [
     path('delete-recipe/<int:recipe_id>/', resource_views.delete_saved_recipe, name='delete-recipe'),
 
     # ──────────────── Onboarding Pages ────────────────
+    path('onboarding/welcome/', onboarding_views.onboarding_welcome, name='onboarding-welcome'),
     path('onboarding/', views.onboarding_start, name='onboarding-start'),
     path('onboarding/habits/', views.select_habits, name='onboarding-habits'),
     path('onboarding/mood/', views.onboarding_mood, name='onboarding-mood'),

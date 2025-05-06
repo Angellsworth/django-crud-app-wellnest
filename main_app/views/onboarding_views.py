@@ -13,6 +13,11 @@ def onboarding_start(request):
     request.session['selected_habits'] = []
     return redirect('onboarding-habits')
 
+def onboarding_welcome(request):
+    if request.method == 'POST':
+        return redirect('onboarding-start')
+    return render(request, 'onboarding/welcome.html')
+
 
 # ──────────────── ONBOARDING STEP 2: Habit Selection ────────────────
 @login_required
@@ -23,7 +28,6 @@ def select_habits(request):
     index = request.session.get('category_index', 0)
     print("Current index:", index)
 
-    # If finished all categories, create habits and move on
     if index >= len(category_order):
         selected_ids = request.session.get('selected_habits', [])
         for habit_id in selected_ids:

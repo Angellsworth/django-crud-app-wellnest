@@ -122,7 +122,6 @@
     text-decoration: underline;
 }
 
-/* Override default paragraph spacing from {{ form.as_p }} */
 .form-container p {
     margin: 0;
     display: flex;
@@ -138,7 +137,7 @@
     font-size: 0.95rem;
 }
 
-/* Style the inputs rendered by {{ form.as_p }} */
+/* Style the inputs */
 .form-container input[type="text"],
 .form-container input[type="password"],
 .form-container input[type="email"] {
@@ -156,7 +155,7 @@
     box-shadow: 0 0 0 3px rgba(117, 70, 104, 0.2);
 }
 
-/* Error list style (optional) */
+/* Error list style */
 .form-container .errorlist {
     list-style: none;
     padding: 0;
