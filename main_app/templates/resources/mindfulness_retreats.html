@@ -8,11 +8,101 @@
 {% block content %}
 <section class="headspace-section">
   <h1>Mindfulness Retreats</h1>
-  <p>Explore mindfulness retreats to restore peace, clarity, and presence.</p>
-  <div class="retreat-options">
-    <p>Local weekend retreats</p>
-    <p>Virtual silent retreats</p>
-    <p>International travel retreats</p>
+  <p>Escape the noise and reconnect with your inner peace. Whether you prefer a quiet corner of your city or a misty mountain abroad, these retreats are curated to restore your mind, body, and spirit.</p>
+
+  <!-- Local Retreats -->
+  <div class="retreat-category">
+    <h2>Local Weekend Retreats</h2>
+    <div class="retreat-grid">
+      <div class="retreat-card">
+        <a href="https://featheredpipe.com/retreats/" target="_blank">
+          <img src="{% static 'images/feathered-pipe.jpg' %}" alt="Feathered Pipe Ranch">
+        </a>
+        <div class="retreat-card-content">
+          <h3>Feathered Pipe Ranch (Montana)</h3>
+          <p>One of the oldest retreat centers in the U.S. offering meditation, yoga, and deep restoration weekends.</p>
+          <a href="https://featheredpipe.com/retreats/" target="_blank" class="book-btn">Book Now</a>
+        </div>
+      </div>
+      
+      <div class="retreat-card">
+        <a href="https://1440.org/programs" target="_blank">
+          <img src="{% static 'images/1440multiversity.jpg' %}" alt="1440 Multiversity">
+        </a>
+        <div class="retreat-card-content">
+          <h3>1440 Multiversity (California)</h3>
+          <p>Surrounded by redwoods, explore immersive mindfulness programs and serene forest bathing paths.</p>
+          <a href="https://1440.org/programs" target="_blank" class="book-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Virtual Retreats -->
+  <div class="retreat-category">
+    <h2>Virtual Silent Retreats</h2>
+    <div class="retreat-grid">
+      <div class="retreat-card">
+        <a href="https://www.spiritrock.org/programs/drop-ins" target="_blank">
+          <img src="{% static 'images/spirit-rock.png' %}" alt="Spirit Rock Virtual">
+        </a>
+        <div class="retreat-card-content">
+          <h3>Spirit Rock Meditation Center</h3>
+          <p>Silent online retreats rooted in Buddhist tradition. Accessible worldwide. Donation-based options available.</p>
+          <a href="https://www.spiritrock.org/OnlineRetreats" target="_blank" class="book-btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="retreat-card">
+        <a href="https://www.tarabrach.com/online-courses/" target="_blank">
+          <img src="{% static 'images/tara-brach.jpg' %}" alt="Tara Brach">
+        </a>
+        <div class="retreat-card-content">
+          <h3>Tara Brach & Jack Kornfield</h3>
+          <p>World-renowned mindfulness leaders offering deeply personal, silent and guided multi-day Zoom retreats.</p>
+          <a href="https://www.tarabrach.com/online-retreats/" target="_blank" class="book-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- International Retreats -->
+  <div class="retreat-category">
+    <h2>🌍 International Travel Retreats</h2>
+    <div class="retreat-grid">
+      <div class="retreat-card">
+        <a href="https://www.goddessretreats.com/?utm_source=chatgpt.com" target="_blank">
+          <img src="{% static 'images/goddess-retreat.jpg' %}" alt="Goddess Retreat - Bali">
+        </a>
+        <div class="retreat-card-content">
+          <h3>Goddess Retreat (Bali)</h3>
+          <p>A luxurious all-women's retreat offering yoga, healing, adventure, and deep rejuvenation in tropical paradise.</p>
+          <a href="https://www.goddessretreats.com/booking/" target="_blank" class="book-btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="retreat-card">
+        <a href="https://www.shambhalamountain.org/" target="_blank">
+          <img src="{% static 'images/shambhala-retreat.avif' %}" alt="Shambhala Mountain Center">
+        </a>
+        <div class="retreat-card-content">
+          <h3>Shambhala Mountain Center (Colorado)</h3>
+          <p>Set in the Rocky Mountains, explore contemplative wisdom traditions with spacious silence and beauty.</p>
+          <a href="https://www.shambhalamountain.org/" target="_blank" class="book-btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="retreat-card">
+        <a href="https://www.bewellretreats.com/" target="_blank">
+          <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" alt="BeWell Retreats - Bali">
+        </a>
+        <div class="retreat-card-content">
+          <h3>BeWell Mindful Retreats (Bali)</h3>
+          <p>Wake with the sun, meditate on the beach, and heal with gentle guidance under tropical skies.</p>
+          <a href="https://www.bewellretreats.com/" target="_blank" class="book-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 {% endblock %}

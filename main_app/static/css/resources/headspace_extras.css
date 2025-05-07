@@ -159,3 +159,93 @@
     margin: 2rem 0;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
 }
+
+/* ───── Retreats Page Layout ───── */
+.retreat-category {
+    margin-top: 3.5rem;
+    text-align: left;
+}
+
+.retreat-category h2 {
+    font-size: 1.8rem;
+    color: var(--color-brand-primary);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid var(--color-accent-optional);
+    padding-left: 1rem;
+}
+
+/* ───── Retreat Grid ───── */
+.retreat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 1rem;
+}
+
+/* ───── Retreat Cards ───── */
+.retreat-card {
+    display: block;
+    background-color: #fcf7ea;
+    border: 1.5px solid var(--color-brand-secondary);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    text-align: left;
+    box-shadow: 0 6px 16px rgba(117, 70, 104, 0.07);
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.retreat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(117, 70, 104, 0.15);
+    background-color: #f7f3e9;
+}
+
+.retreat-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 0.85rem;
+}
+
+.retreat-card h3 {
+    margin-top: 0.25rem;
+    font-size: 1.15rem;
+    color: var(--color-brand-primary);
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.retreat-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+}
+
+.book-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: var(--color-brand-primary);
+    color: #fff;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(117, 70, 104, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.book-btn:hover {
+    background-color: var(--color-brand-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(117, 70, 104, 0.15);
+}
+
+.book-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(117, 70, 104, 0.1);
+}
