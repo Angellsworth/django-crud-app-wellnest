@@ -80,6 +80,22 @@ WSGI_APPLICATION = 'wellnest_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# if 'ON_HEROKU' in os.environ:
+#     DATABASES = {
+#         "default": dj_database_url.config(
+#             env='DATABASE_URL',
+#             conn_max_age=600,
+#             conn_health_checks=True,
+#             ssl_require=True,
+#         ),
+#     }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
 if 'ON_HEROKU' in os.environ:
     DATABASES = {
         "default": dj_database_url.config(
@@ -92,8 +108,12 @@ if 'ON_HEROKU' in os.environ:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'wellnest_dev',
+            'USER': 'angellsworth',
+            'PASSWORD': '',
+            'HOST': 'localhost',
+            'PORT': '5432',
         }
     }
 
