@@ -50,8 +50,7 @@ class HabitCheckIn(models.Model):
 
 class MoodEntry(models.Model):
     date = models.DateField('Mood date')
-    # mood = models.CharField(max_length=20, choices=MOOD_CHOICES)
-    mood = models.IntegerField()
+    mood = models.CharField(max_length=20, choices=MOOD_CHOICES)
     note = models.TextField(blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 

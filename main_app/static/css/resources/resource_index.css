@@ -1,38 +1,41 @@
 .resource-container {
-    max-width: 900px;
-    margin: 20px auto;
+    max-width: 960px;
+    margin: 3rem auto;
     padding: 4rem 2rem;
     background-color: #fffdf9;
-    border-radius: 1rem;
-    box-shadow: 0 8px 24px rgba(117, 70, 104, 0.08);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 28px rgba(117, 70, 104, 0.08);
     text-align: left;
+    border: 2px solid var(--color-accent-optional);
 }
 
 .resource-container h1 {
     font-family: 'Brown Sugar', cursive;
-    font-size: 2.6rem;
+    font-size: 3rem;
     color: var(--color-accent-optional);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
 .resource-container .intro {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--color-text-secondary);
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
+    line-height: 1.6;
 }
 
 .resource-section {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
 }
 
 .resource-section h2 {
     color: var(--color-brand-primary);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 1rem;
-    border-bottom: 1.5px solid var(--color-brand-secondary);
+    border-bottom: 2px dashed var(--color-brand-secondary);
     padding-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 .resource-section ul {
@@ -41,10 +44,19 @@
 }
 
 .resource-section li {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--color-text-primary);
-    margin-bottom: 0.8rem;
-    line-height: 1.6;
+    margin-bottom: 0.9rem;
+    line-height: 1.8;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.resource-section li::before {
+    content: "🌱";
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
 }
 
 .resource-section li a {
@@ -52,9 +64,10 @@
     font-weight: 500;
     text-decoration: none;
     border-bottom: 1px solid transparent;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 .resource-section li a:hover {
     border-color: var(--color-accent-optional);
+    color: var(--color-brand-primary);
 }

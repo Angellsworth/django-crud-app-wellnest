@@ -249,3 +249,78 @@
     transform: scale(0.98);
     box-shadow: 0 2px 8px rgba(117, 70, 104, 0.1);
 }
+
+/* ───── Vision Board Styling ───── */
+.vision-board {
+    background: #fff9f5 url('/static/images/pinboard-texture.jpg') repeat;
+    border: 2px solid var(--color-brand-secondary);
+    padding: 4rem 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 30px rgba(117, 70, 104, 0.08);
+    text-align: center;
+}
+
+.vision-board h1 {
+    font-size: 2.5rem;
+    font-family: 'Style Script', cursive;
+    color: var(--color-brand-primary);
+    margin-bottom: 0.5rem;
+}
+
+.vision-intro {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+.vision-board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    padding: 0 1rem;
+}
+
+.vision-card {
+    background-color: #fff;
+    border: 2px dashed var(--color-accent-optional);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    max-width: 260px;
+}
+
+.vision-card:hover {
+    transform: rotate(-1deg) scale(1.02);
+    box-shadow: 0 8px 16px rgba(117, 70, 104, 0.12);
+}
+
+.vision-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.download-btn {
+    display: inline-block;
+    background-color: var(--color-brand-primary);
+    color: white;
+    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+    border-radius: 1rem;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.download-btn:hover {
+    background-color: var(--color-brand-secondary);
+    color: #fff;
+    transform: translateY(-2px);
+}
