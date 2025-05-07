@@ -1,7 +1,7 @@
 .headspace-section {
     padding: 4rem 2rem;
     margin-top: 3rem;
-    max-width: 800px;
+    max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
     background-color: #fff;
@@ -29,4 +29,133 @@
     font-size: 1.05rem;
     font-weight: 500;
     color: var(--color-brand-primary);
+}
+
+/* ───── Video Card Grid (Workouts) ───── */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+    justify-items: center;
+}
+
+.video-card {
+    display: block;
+    background-color: #fcf7ea;
+    border: 1.5px solid var(--color-brand-secondary);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(117, 70, 104, 0.12);
+}
+
+.video-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.video-card h3 {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: var(--color-brand-primary);
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+/* ───── Decluttering & Feng Shui Styles ───── */
+.fengshui-section {
+    background-color: #fdfcf9;
+    padding: 3rem 2rem;
+    border: 2px dashed var(--color-accent-optional);
+    border-radius: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 20px rgba(173, 150, 130, 0.05);
+    transition: all 0.3s ease;
+}
+
+.fengshui-section:hover {
+    box-shadow: 0 6px 28px rgba(173, 150, 130, 0.12);
+}
+
+.fengshui-section h2 {
+    font-size: 1.8rem;
+    color: var(--color-brand-primary);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.fengshui-section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-accent-optional);
+    margin: 0.5rem auto 1.5rem;
+    border-radius: 2px;
+}
+
+.fengshui-section p {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.fengshui-section a {
+    color: var(--color-brand-primary);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--color-brand-secondary);
+    transition: border-color 0.3s ease;
+}
+
+.fengshui-section a:hover {
+    border-color: var(--color-brand-primary);
+}
+
+.fengshui-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.fengshui-section ul li {
+    margin-bottom: 1.25rem;
+    padding-left: 1.25rem;
+    position: relative;
+    font-weight: 500;
+    color: var(--color-brand-primary);
+    font-size: 1.05rem;
+}
+
+.fengshui-section ul li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.fengshui-section .resource-block {
+    background-color: #f9f6f0;
+    border: 1px solid var(--color-brand-secondary);
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
 }

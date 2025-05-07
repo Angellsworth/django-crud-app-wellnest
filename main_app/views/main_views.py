@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 from datetime import date
 from ..forms import CustomUserCreationForm, EditProfileForm
-from ..models import Profile, Habit, HabitCheckIn, SavedRecipe
+from ..models import Profile, Habit, HabitCheckIn, SavedRecipe, MoodEntry
 
 # ──────────────── STATIC PAGES ────────────────
 

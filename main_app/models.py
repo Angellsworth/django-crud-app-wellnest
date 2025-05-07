@@ -19,7 +19,7 @@ MOOD_CHOICES = [
     ('lonely', '🥺 Lonely'),
     ('grateful', '🙏 Grateful'),
     ('hopeful', '🌱 Hopeful'),
-    ('nesting', '🪺 Nesting'),  # symbolic, restorative mood
+    ('nesting', '🪺 Nesting'),  
 ]
 
 # ──────────────── Habit Models ────────────────
@@ -50,7 +50,8 @@ class HabitCheckIn(models.Model):
 
 class MoodEntry(models.Model):
     date = models.DateField('Mood date')
-    mood = models.CharField(max_length=20, choices=MOOD_CHOICES)
+    # mood = models.CharField(max_length=20, choices=MOOD_CHOICES)
+    mood = models.IntegerField()
     note = models.TextField(blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 

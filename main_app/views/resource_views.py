@@ -40,9 +40,6 @@ def headspace_meditations(request):
     ]
     return render(request, 'resources/headspace_meditations.html', {'videos': videos})
 
-# @login_required
-# def headspace_recipes(request):
-#     return render(request, 'resources/headspace_recipes.html')
 @login_required
 def headspace_recipes(request):
     sections = ['Breakfast', 'Lunch', 'Dinner', 'Snacks', 'Teas / Drinks']

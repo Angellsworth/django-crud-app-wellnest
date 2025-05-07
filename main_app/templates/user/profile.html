@@ -9,32 +9,80 @@
 <div class="profile-container">
   <h1>Welcome back,<span> {{ user.first_name|default:user.username }} </span>  </h1>
   <p class="intro-line">Here’s your WellNest space for reflection, growth, and gentle progress.</p>
+    <div class="dashboard-grid">
+      <a href="{% url 'habit-index' %}" class="dashboard-card">
+        <img src="{% static 'images/habitLogo.png' %}" alt="Habits">
+        <h2>Habits</h2>
+        <p>Track daily goals and routines</p>
+      </a>
 
+      <a href="{% url 'reflection-index' %}" class="dashboard-card">
+        <img src="{% static 'images/journalLogo.png' %}" alt="Reflections">
+        <h2>Reflections</h2>
+        <p>Write and revisit journal entries</p>
+      </a>
+
+      <a href="{% url 'mood-index' %}" class="dashboard-card">
+        <img src="{% static 'images/moodsLogo.png' %}" alt="Mood Tracker">
+        <h2>Mood</h2>
+        <p>See how you’re feeling over time</p>
+      </a>
+    </div>
+</div>
+
+<div class="profile-container">
+
+  <div class="dashboard-section-header">Headspace & Resources</div>
   <div class="dashboard-grid">
-
-    <a href="{% url 'habit-index' %}" class="dashboard-card">
-      <img src="{% static 'images/habitLogo.png' %}" alt="Habits">
-      <h2>Habits</h2>
-      <p>Track daily goals and routines</p>
+    <a href="{% url 'headspace-meditations' %}" class="dashboard-card">
+      <img src="{% static 'images/meditations.png' %}" alt="Meditation">
+      <h2>Meditation</h2>
+      <p>Tap into peace with soundscapes & breathwork</p>
     </a>
-
-    <a href="{% url 'reflection-index' %}" class="dashboard-card">
-      <img src="{% static 'images/journalLogo.png' %}" alt="Reflections">
-      <h2>Reflections</h2>
-      <p>Write and revisit journal entries</p>
+  
+    <a href="{% url 'headspace-recipes' %}" class="dashboard-card">
+      <img src="{% static 'images/recipes.png' %}" alt="Recipes">
+      <h2>Recipes</h2>
+      <p>Find healing in the foods that fuel you</p>
     </a>
-
-    <a href="{% url 'mood-index' %}" class="dashboard-card">
-      <img src="{% static 'images/moodsLogo.png' %}" alt="Mood Tracker">
-      <h2>Mood</h2>
-      <p>See how you’re feeling over time</p>
+  
+    <a href="{% url 'gentle-workouts' %}" class="dashboard-card">
+      <img src="{% static 'images/workouts.png' %}" alt="Workouts">
+      <h2>Workouts</h2>
+      <p>Stretch, breathe, and feel strong gently</p>
     </a>
-    </div>
-    </div>
-      <div class="profile-actions-wrapper">
-        <a href="{% url 'edit_profile' %}" class="profile-button edit">Edit Profile</a>
-        <a href="{% url 'delete_profile' %}" class="profile-button delete">Delete Profile</a>
-      </div>
+  
+    <a href="{% url 'decluttering' %}" class="dashboard-card">
+      <img src="{% static 'images/decluttering.png' %}" alt="Feng Shui">
+      <h2>Feng Shui</h2>
+      <p>Clear space, clear mind. Learn to flow again.</p>
+    </a>
+  
+    <a href="{% url 'vision-boards' %}" class="dashboard-card">
+      <img src="{% static 'images/visionBoard.png' %}" alt="Vision Boards">
+      <h2>Vision Boards</h2>
+      <p>Map your magic. Download inspiration & reflect.</p>
+    </a>
+    <a href="{% url 'mindfulness-retreats' %}" class="dashboard-card">
+      <img src="{% static 'images/retreats.png' %}" alt="Wellness Retreats">
+      <h2>Wellness Retreats</h2>
+      <p>Step away to reset. Explore local & virtual retreats for peace and clarity.</p>
+    </a>  
+    <a href="{% url 'resource-index' %}" class="dashboard-card">
+      <img src="{% static 'images/resources.png' %}" alt="Resources">
+      <h2>Resources</h2>
+      <p>Books, podcasts, and wellness tools</p>
+    </a>
+  
+    <a href="{% url 'find-therapist' %}" class="dashboard-card">
+      <img src="{% static 'images/therapy.png' %}" alt="Therapist Finder">
+      <h2>Therapist Finder</h2>
+      <p>Search for support near you</p>
+    </a>
+  </div>
+
+</div>
+
       <section class="saved-recipes">
         <h2>Saved Recipes</h2>
         <a href="{% url 'headspace-recipes' %}" class="btn add-recipe-btn">Add a Recipe</a>
@@ -59,4 +107,61 @@
           <p class="no-saved-msg">You haven’t saved any recipes yet.</p>
         {% endif %}
       </section>
+      {% block script %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('moodTrendChart').getContext('2d');
+
+const moodChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: JSON.parse('{{ chart_labels|safe|escapejs }}'),
+    datasets: [{
+      label: 'Mood Score',
+      data: JSON.parse('{{ chart_data|safe|escapejs }}'),
+      borderColor: '#754668',
+      backgroundColor: 'rgba(117, 70, 104, 0.1)',
+      tension: 0.4,
+      fill: true,
+      pointRadius: 4,
+      pointHoverRadius: 6,
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 10,
+        title: {
+          display: true,
+          text: 'Mood (1 = 😢 to 10 = 😄)'
+        }
+      },
+      x: {
+        title: {
+          display: true,
+          text: 'Date'
+        }
+      }
+    },
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            const emojiMap = {
+              1: '😢', 2: '😠', 3: '😩', 4: '😰', 5: '😐',
+              6: '😊', 7: '🙂', 8: '🌱', 9: '🙏', 10: '😄'
+            };
+            const score = context.parsed.y;
+            return `Mood Score: ${score} ${emojiMap[score] || ''}`;
+          }
+        }
+      }
+    }
+  }
+});
+</script>
+{% endblock %}
 {% endblock %}

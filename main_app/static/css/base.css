@@ -237,37 +237,38 @@ body {
 }
 
 /* ---------- Footer ---------- */
-footer {
-    background-color: #457d58c5;
-    color: var(--color-background);
+.footer {
     text-align: center;
-    padding: 1rem;
+    padding: 2rem 1rem;
+    background-color: #457d58c5;
+    border-top: 1px solid var(--color-accent-optional);
     font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 0.9rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    margin-top: auto;
+    color: var(--color-background);
 }
 
-footer a {
-    display: block;
+.footer strong {
+    font-weight: 600;
+    color: var(--color-background);
+}
+
+.footer-links {
     margin-top: 0.5rem;
-    color: var(--color-accent-optional);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-weight: 100;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .footer-link {
-    display: block;
-    margin-top: 0.5rem;
-    color: var(--color-accent-optional);
+    color: var(--color-background);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-weight: 100;
+}
+
+.footer-link:hover {
+    color: var(--color-brand-secondary);
 }
 
 footer span {

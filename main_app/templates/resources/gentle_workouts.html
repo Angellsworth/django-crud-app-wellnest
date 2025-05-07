@@ -1,13 +1,52 @@
 {% extends 'base.html' %}
-
 {% load static %}
+
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/resources/headspace_extras.css' %}">
 {% endblock %}
 
 {% block content %}
 <section class="headspace-section">
-    <h1>Gentle Workouts</h1>
-    <p>Movement doesn’t have to be intense to be healing. Here you’ll find light routines designed to refresh your energy, loosen tension, and support your mind-body connection. Try stretching, yoga, or mindful walks to start.</p>
-  </section>
+  <h1>Gentle Workouts</h1>
+  <p>Movement doesn’t have to be intense to be healing. These videos offer restorative stretches, breathwork, and mindful movement to ease your body and reset your energy.</p>
+
+  <div class="video-grid">
+    <a href="https://www.youtube.com/watch?v=4pKly2JojMw" target="_blank" class="video-card">
+      <img src="https://img.youtube.com/vi/4pKly2JojMw/hqdefault.jpg" alt="Yoga with Adriene">
+      <h3>10-Min Morning Yoga – Adriene</h3>
+    </a>
+    <a href="https://www.youtube.com/watch?v=ZToicYcHIOU" target="_blank" class="video-card">
+      <img src="https://img.youtube.com/vi/ZToicYcHIOU/hqdefault.jpg" alt="Mindful Movement">
+      <h3>Gentle Stretch & Breathe</h3>
+    </a>
+    <a href="https://www.youtube.com/watch?v=9g4z0gFlfpA" target="_blank" class="video-card">
+      <img src="https://img.youtube.com/vi/9g4z0gFlfpA/hqdefault.jpg" alt="Full Body Gentle Yoga">
+      <h3>Morning Workout</h3>
+    </a>
+    <a href="https://www.youtube.com/watch?v=TkmwgoGdMOk" target="_blank" class="video-card">
+      <img src="https://img.youtube.com/vi/TkmwgoGdMOk/hqdefault.jpg" alt="Relaxing Yoga Before Bed">
+      <h3>15-Min Gentle Workout</h3>
+    </a>
+    <a href="https://www.youtube.com/watch?v=9Oy43Fh5ONY" target="_blank" class="video-card">
+      <img src="https://img.youtube.com/vi/9Oy43Fh5ONY/hqdefault.jpg" alt="Dumbell 30 min">
+      <h3>30-Min Fullbody Strength</h3>
+    </a>
+    <a href="https://www.youtube.com/watch?v=cbKkB3POqaY" target="_blank" class="video-card">
+      <img src="https://img.youtube.com/vi/cbKkB3POqaY/hqdefault.jpg" alt="10 Min Seated Stretch">
+      <h3>25-Min Fullbody Strength</h3>
+    </a>
+    <a href="https://www.youtube.com/watch?v=sMIatEvTACI" target="_blank" class="video-card">
+      <img src="https://img.youtube.com/vi/sMIatEvTACI/hqdefault.jpg" alt="Stretch for Beginners">
+      <h3>30-Min Walking Workout</h3>
+    </a>
+    <a href="https://www.youtube.com/watch?v=yfPHLqOSGX4" target="_blank" class="video-card">
+      <img src="https://img.youtube.com/vi/yfPHLqOSGX4/hqdefault.jpg" alt="10 Min Evening Stretch">
+      <h3>30-Min Walking 4000 Steps</h3>
+    </a>
+    <a href="https://www.youtube.com/watch?v=WisaiUma9pA" target="_blank" class="video-card">
+      <img src="https://img.youtube.com/vi/WisaiUma9pA/hqdefault.jpg" alt="Relaxing Yoga Stretch for Bed">
+      <h3>Relaxing Yoga Stretch for Bed</h3>
+    </a>
+  </div>
+</section>
 {% endblock %}

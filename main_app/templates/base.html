@@ -182,10 +182,14 @@
         </main>
         
         {% block script %}{% endblock %} 
-        <footer>
-            <p>© 2025 WellNest — Curated Wellness</p>
-            <a href="{% url 'about' %}" class="footer-link">About <span>WellNest</span></a>    
-        </footer>
+        <footer class="footer">
+            <p>© 2025 <strong>WellNest</strong> — Curated Wellness</p>
+            <div class="footer-links">
+                <a href="/about/" class="footer-link">About <span>WellNest</span></a>
+              <a href="https://github.com/Angellsworth" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://www.linkedin.com/in/angela-ellsworth/" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </footer>
 
     </div>
 
