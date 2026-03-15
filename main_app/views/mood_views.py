@@ -1,4 +1,5 @@
 # main_app/views/mood_views.py
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from datetime import date, timedelta
@@ -10,6 +11,7 @@ from ..forms import MoodForm
 
 # ──────────────── MOOD VIEWS ────────────────
 
+# Maps each mood option to a numerical score for charting
 MOOD_TO_SCORE = {
     'ecstatic': 10,
     'happy': 9,
@@ -26,10 +28,11 @@ MOOD_TO_SCORE = {
     'overwhelmed': 1,
 }
 
+# View: Displays the mood dashboard with chart data
 @login_required
 def mood_index(request):
     user = request.user
-    allowed_ranges = [7, 30, 90, 365]
+    allowed_ranges = [7, 30, 90, 365]  # Valid day ranges for the chart
     default_range = 30
     try:
         days = int(request.GET.get('range', default_range))
@@ -38,8 +41,11 @@ def mood_index(request):
     except ValueError:
         days = default_range
 
+    # Filter moods for the user within the selected date range
     start_date = date.today() - timedelta(days=days)
     moods = MoodEntry.objects.filter(user=user, date__gte=start_date).order_by('date')
+
+    # Prepare chart labels and data
     chart_labels = [m.date.strftime('%b %d') for m in moods]
     chart_data = [MOOD_TO_SCORE.get(m.mood, 5) for m in moods]
 
@@ -50,6 +56,7 @@ def mood_index(request):
         'chart_data': json.dumps(chart_data),
     })
 
+# View: Handles creation of a new mood entry
 @login_required
 def mood_create(request):
     if request.method == 'POST':
@@ -68,11 +75,13 @@ def mood_create(request):
         'back_link': 'mood-index',
     })
 
+# View: Displays details of a specific mood entry
 @login_required
 def mood_detail(request, mood_id):
     mood = get_object_or_404(MoodEntry, id=mood_id)
     return render(request, 'moods/mood_detail.html', {'mood': mood})
 
+# View: Handles editing an existing mood entry
 @login_required
 def mood_edit(request, mood_id):
     mood = get_object_or_404(MoodEntry, id=mood_id)
@@ -91,6 +100,7 @@ def mood_edit(request, mood_id):
         'mood': mood,
     })
 
+# View: Handles deletion of a mood entry
 @login_required
 def mood_delete(request, mood_id):
     mood = get_object_or_404(MoodEntry, id=mood_id)
@@ -99,6 +109,7 @@ def mood_delete(request, mood_id):
         return redirect('mood-index')
     return render(request, 'moods/mood_confirm_delete.html', {'mood': mood})
 
+# View: API endpoint that returns mood data for JavaScript charts
 @login_required
 def mood_data_api(request):
     user = request.user

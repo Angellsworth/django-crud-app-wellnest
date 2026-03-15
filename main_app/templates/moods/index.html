@@ -53,78 +53,79 @@
 
 {% block script %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    const ctx = document.getElementById('moodTrendChart').getContext('2d');
+<script>
+  // Find the canvas on the page where we will draw the chart
+  const ctx = document.getElementById('moodTrendChart').getContext('2d');
 
-    const moodChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: JSON.parse('{{ chart_labels|safe|escapejs }}'),
-        datasets: [{
-          label: 'Mood Score',
-          data: JSON.parse('{{ chart_data|safe|escapejs }}'),
-          borderColor: '#754668',
-          backgroundColor: 'rgba(117, 70, 104, 0.1)',
-          tension: 0.4,
-          fill: true,
-          pointRadius: 4,
-          pointHoverRadius: 6,
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-            max: 10,
-            title: {
-              display: true,
-              text: 'Mood (1 = 😢 to 10 = 😄)'
-            }
-          },
-          x: {
-            title: {
-              display: true,
-              text: 'Date'
-            }
+  // Create the line chart using Chart.js
+  const moodChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      // These are the dates for the x-axis
+      labels: JSON.parse('{{ chart_labels|safe|escapejs }}'),
+      datasets: [{
+        label: 'Mood Score',
+        // These are the mood scores for the y-axis
+        data: JSON.parse('{{ chart_data|safe|escapejs }}'),
+        borderColor: '#754668',  // Line color
+        backgroundColor: 'rgba(117, 70, 104, 0.1)', // Fill color under line
+        tension: 0.4,             // Curved line instead of straight
+        fill: true,               // Fill the area under the line
+        pointRadius: 4,           // Size of the points on the line
+        pointHoverRadius: 6       // Size of the points when hovered
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,     // y-axis starts at 0
+          max: 10,               // y-axis goes up to 10
+          title: {
+            display: true,
+            text: 'Mood Score'
           }
         },
-        responsive: true,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function(context) {
-                const emojiMap = {
-                  1: '😢', 2: '😠', 3: '😩', 4: '😰', 5: '😐',
-                  6: '😊', 7: '🙂', 8: '🌱', 9: '🙏', 10: '😄'
-                };
-                const score = context.parsed.y;
-                return `Mood Score: ${score} ${emojiMap[score] || ''}`;
-              }
+        x: {
+          title: {
+            display: true,
+            text: 'Date'
+          }
+        }
+      },
+      responsive: true,
+      plugins: {
+        legend: { display: false },  // Hide the legend box
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const score = context.parsed.y;
+              return `Mood Score: ${score}`;
             }
           }
         }
       }
-    });
-    
+    }
+  });
+
+  // Make the chart update when a button is clicked to show different date ranges
   document.querySelectorAll('.range-btn').forEach(btn => {
     btn.addEventListener('click', function () {
       const range = this.getAttribute('data-range');
 
+      // Ask the backend for new chart data based on the selected range
       fetch(`/api/mood-data/?range=${range}`)
         .then(response => response.json())
         .then(data => {
-          // Update chart labels and data
+          // Change the chart data and refresh the chart
           moodChart.data.labels = data.labels;
           moodChart.data.datasets[0].data = data.scores;
           moodChart.update();
 
-          // Update button styles
+          // Make the clicked button look "active"
           document.querySelectorAll('.range-btn').forEach(b => b.classList.remove('active'));
           this.classList.add('active');
         });
     });
   });
-
-  </script>
+</script>
 {% endblock %}
